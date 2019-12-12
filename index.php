@@ -4,8 +4,6 @@ $statement = $pdo -> prepare('SELECT *FROM users where id = 1');
 
 if (!$statement) {
     die(var_dump($pdo->errorInfo()));
-}else{
-    echo'hello';
 }
 $statement->execute();
 
