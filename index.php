@@ -1,19 +1,31 @@
-<?php  
+<?php
+
 declare(strict_types=1);
 
 require __DIR__ . '/app/autoload.php';
+require __DIR__ . '/views/header.php';
+//die(var_dump($_SESSION["user"]));
+//die(var_dump())
+//$_SESSION["user"] = $user;
+$id = $_SESSION["user"]['id'];
+$id = (int) $id;
+//unset($_SESSION['user']);
 
-$statement = $pdo->prepare('SELECT *FROM users where id = 1');
-
-if (!$statement) {
-    die(var_dump($pdo->errorInfo()));
+if ($id === 1) {
+    echo 'hello';
 }
 
-
-require __DIR__ . '/views/header.php';
 ?>
 
 <body>
+    <?php if($_SESSION){
+        echo 'whatt the hell is going on';
+    }else{
+        echo'nonoo';
+    } ?>
+    <form action="app/users/login.php" method="post">
+    <button type="subbmit">unset</button>
+    </form>
     <form action="app/users/login.php" method="post">
         <div class="form-group">
             <label for="email">Email</label>
