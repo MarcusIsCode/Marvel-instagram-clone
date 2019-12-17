@@ -26,7 +26,7 @@ if(isset($_POST['email'],$_POST['password'] )){
         redirect('/');
         
     }else{
-        echo 'password wrong';
+        redirect('/');
     }
     
 }

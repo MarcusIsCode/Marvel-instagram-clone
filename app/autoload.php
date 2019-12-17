@@ -15,4 +15,5 @@ $db = sprintf('sqlite:%s/database/instagram_clone.db',__DIR__ );
 
 $pdo = new PDO($db);
 
+
 ?>

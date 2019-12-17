@@ -12,12 +12,16 @@ $id = (int) $id;
 ?>
 
 <body>
-    <?php if (!$_SESSION) {
-        require __DIR__ . '/views/loggin_out/login.php';
-    } else {
-        require __DIR__ . '/views/loggin_out/out.php';
-      
-    } ?>
+    <?php
+  
     
+    if (!$_SESSION) {
+                require __DIR__ . '/views/loggin_out/login.php';
+                require __DIR__. '/views/account_AddRemove/addAc.php';
+            } else {
+                require __DIR__ . '/views/loggin_out/out.php';
+        } 
+       ?>
+   
 </body>
 <?php require __DIR__ . '/views/fotter.php' ?>
