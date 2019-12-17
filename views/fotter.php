@@ -1,9 +1,8 @@
  
 
   
-    <?php echo 'footer'; 
-    echo'it worked';?>
-  <script src="/assets/scripts/main.js"></script>
+    
+  <script src="assets/script/scirpt.js"></script>
   </body>
 
   </html>
