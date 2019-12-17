@@ -16,9 +16,9 @@ if(isset($_POST['email'],$_POST['password'] )){
         redirect('/');
     };
     //die(var_dump(($user['password'])));
-
+    //$_POST['password'] === $user['password']
     //die(var_dump(password_verify($_POST['password'], $user['password'])));
-     if ($_POST['password'] === $user['password']) {
+     if (password_verify($_POST['password'], $user['password'])) {
        
         unset($user['password']);
         $_SESSION['user']= $user;
