@@ -1,5 +1,5 @@
 <form class="addAccount" action="app/users/creatAccount.php" method="post">
-    <h2>creat account</h2>
+    <h2>New Marvel</h2>
     <h4><?php echo $messageAcount ?></h4>
     <div class="form-gruop">
         <label for="emailCreat"></label>

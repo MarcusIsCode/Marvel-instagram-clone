@@ -4,6 +4,7 @@
 
 ?>
 <div class="account">
+    <h1>Marvel instagram</h1>
     <form class="loggin" action="app/users/login.php" method="post">
         <p><?php echo $messageLogin ?> </p>
         <div class="form-gruop">

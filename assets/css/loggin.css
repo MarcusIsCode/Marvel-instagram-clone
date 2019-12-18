@@ -10,12 +10,29 @@
 */
 
 .account{
+    position: absolute;
     border-radius: 10px;
-    background:rgba(185,190,186,0.85);
+    background:rgba(185,190,186,0.7);
     box-shadow: 4px 5px 10px 1px rgba(0,0,0,0.7);
-    margin:20px auto;
     width:80vw;
     padding:10px;
+    text-align: center;
+    color:white;
+    top:20px;
+    left:50%;
+    transform: translate(-50%);
+}
+textarea{
+    background: white;
+    color:black;
+    margin-top:10px;
+    width:200px;
+    height:125px ;
+}
+.account h1{
+    margin-top:0px;
+    color:white;
+    font-size: 37px;
 }
 input{
     background: white;
@@ -25,5 +42,16 @@ input{
     margin: 0 auto;
     margin-top:5px;
     border-radius: 5px;
+    width:200px;
 }
-
+button{
+    margin-top:5px;
+    width:90px;
+    background: var(--lightBlue);
+    color:white;
+    border-radius: 3px;
+    border:1px solid var(--lightBlue);
+}
+button::after{
+    background:red;
+}
