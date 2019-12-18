@@ -1,6 +1,6 @@
 :root{
     /*black and white includead*/
-    --darkBlue:1E2639;
+    --darkBlue:#1E2639;
     --lightBlue:#4D8AB5;
     --grey:#B9BEBA;
     --red:#C72523;
@@ -17,7 +17,9 @@ footer,header,hgroup,menu,nav,section {
 }
 
 body{
-    background: var(--lightBlue);
+    min-height: 93.2vh;
+    min-width: 100vw;
+    background: linear-gradient(var(--red), var(--darkBlue));
 }
 
 

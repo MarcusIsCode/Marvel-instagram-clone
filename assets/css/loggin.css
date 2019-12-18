@@ -9,8 +9,21 @@
 
 */
 
-
-form{
-    background:	var(--grey);
-    margin:0 auto;
+.account{
+    border-radius: 10px;
+    background:rgba(185,190,186,0.85);
+    box-shadow: 4px 5px 10px 1px rgba(0,0,0,0.7);
+    margin:20px auto;
+    width:80vw;
+    padding:10px;
 }
+input{
+    background: white;
+    color:black;
+    border:none;
+    position: relative;
+    margin: 0 auto;
+    margin-top:5px;
+    border-radius: 5px;
+}
+

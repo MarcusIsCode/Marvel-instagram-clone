@@ -14,11 +14,12 @@ $id = (int) $id;
     <?php
     if (!$_SESSION['user']) {
         //loggin and create acount
+         
+                $messageAcount = ($_SESSION['account'] === 'false' ? 'Account alredy exist ' : " ");
                 $messageLogin = ($_SESSION['login'] === 'false' ? 'Wrong password ': " ");
                 require __DIR__ . '/views/loggin_out/login.php';
                 
-                $messageAcount = ($_SESSION['account'] === 'false' ? 'Account alredy exist ' : " ");
-                require __DIR__. '/views/account_AddRemove/addAc.php';
+                
             } else {
 
                 //when login out  

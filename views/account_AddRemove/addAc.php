@@ -8,7 +8,7 @@
         <label for="heroName"></label>
         <input class="input" type="text" name="heroName" id="heroName" placeholder="Your Hero name" required>
 
-    </div><!-- /form-group  -->
+    </div>
 
     <div class="form-group">
         <label for="password"></label>
