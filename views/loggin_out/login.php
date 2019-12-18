@@ -1,10 +1,11 @@
 <?php
-//require __DIR__ . "/../app/autoload.php"; 
+
 //page reguire this when there isn't a session 
 
 ?>
 
 <form class="loggin" action="app/users/login.php" method="post">
+ <p><?php echo $message ?> </p>
     <div class="form-gruop">
         <label for="email"></label>
         <input class="input" type="email" name="email" id="email" placeholder="Email" required>

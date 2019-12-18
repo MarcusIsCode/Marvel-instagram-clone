@@ -8,5 +8,3 @@
     <title>Document</title>
     <link rel="stylesheet" href="assets\css\style.css">
 </head>
-
-<h2><?php echo 'header' ?></h2>

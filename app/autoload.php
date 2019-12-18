@@ -1,11 +1,14 @@
 <?php 
 declare(strict_types=1);
-// Start the session engines.
 session_start();
 // Set the default timezone to coordinated universal time.
 date_default_timezone_set('UTC');
 // Set the default character encoding to UTF-8.
 mb_internal_encoding('UTF-8');
+//setcookie('account','Welcome loggin to comfirm your account');
+setcookie('message', "", time() + 30);
+$messageLogin = $_COOKIE['message'];
+$messageAcount = $_COOKIE['message'];
 
 require __DIR__.'/function.php';
 
