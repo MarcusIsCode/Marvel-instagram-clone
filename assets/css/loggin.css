@@ -1,0 +1,16 @@
+/*
+    white,black
+    --darkBlue:1E2639;
+    --lightBlue:#4D8AB5;
+    --grey:#B9BEBA;
+    --red:#C72523;
+    --ruby:#951E22;
+    --bloodRd:#951E22;
+
+*/
+
+
+form{
+    background:	var(--grey);
+    margin:0 auto;
+}

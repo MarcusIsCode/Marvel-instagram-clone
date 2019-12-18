@@ -1,0 +1,23 @@
+:root{
+    /*black and white includead*/
+    --darkBlue:1E2639;
+    --lightBlue:#4D8AB5;
+    --grey:#B9BEBA;
+    --red:#C72523;
+    --ruby:#951E22;
+    --bloodRd:#951E22;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+body{
+    background: var(--lightBlue);
+}
+
+
