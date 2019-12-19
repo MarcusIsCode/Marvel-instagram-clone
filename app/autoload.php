@@ -6,9 +6,8 @@ date_default_timezone_set('UTC');
 // Set the default character encoding to UTF-8.
 mb_internal_encoding('UTF-8');
 //setcookie('account','Welcome loggin to comfirm your account');
-setcookie('message', "", time() + 30);
-$messageLogin = $_COOKIE['message'];
-$messageAcount = $_COOKIE['message'];
+setcookie('messageLog', "hello",time() +(5*60));
+setcookie('messageAc', "hello", time() + (5*60));
 
 require __DIR__.'/function.php';
 

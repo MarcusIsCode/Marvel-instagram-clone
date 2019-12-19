@@ -1,6 +1,6 @@
 <form class="addAccount" action="app/users/creatAccount.php" method="post">
     <h2>New Marvel</h2>
-    <h4><?php echo $messageAcount ?></h4>
+    <h4><?php echo $_COOKIE['messageAc'] ?></h4>
     <div class="form-gruop">
         <label for="emailCreat"></label>
         <input class="input" type="email" name="email" id="emailCreat" placeholder="Email" required>
@@ -26,5 +26,5 @@
         <label for="profileImg"></label>
         <input type="file" name="img" id="profileImg" src="" alt="" placeholder="profilepic">
     </div>
-    <button type="submit" class="btn">Creat Account</button>
+    <button type="submit" class="btn">Create Account</button>
 </form>

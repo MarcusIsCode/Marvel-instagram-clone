@@ -12,13 +12,15 @@ $id = (int) $id;
 
 <body>
     <?php
+       
     if (!$_SESSION['user']) {
-        //loggin and create acount
-         
-                $messageAcount = ($_SESSION['account'] === 'false' ? 'Account alredy exist ' : " ");
-                $messageLogin = ($_SESSION['login'] === 'false' ? 'Wrong password ': " ");
+        //login and create account
+    
+        $_COOKIE['messageAc'] = ($_SESSION['account'] === 'false' ? 'Account already exist ' : " ");
+        $_COOKIE['messageLog'] = ($_SESSION['login'] === 'false' ? 'Wrong password ': " ");
                 require __DIR__ . '/views/loggin_out/login.php';
-                
+        unset($_SESSION['account']);
+        unset($_SESSION['login']);       
                 
             } else {
 

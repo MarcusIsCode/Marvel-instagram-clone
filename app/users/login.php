@@ -16,15 +16,16 @@ if(isset($_POST['email'],$_POST['password'] )){
         $_SESSION['login'] = 'false';
         redirect('/');
     };
-   //check password
-     if (password_verify($_POST['password'], $user['password'])) {
-       
+    //check password
+    if (password_verify($_POST['password'], $user['password'])) {
         unset($user['password']);
         $_SESSION['user']= $user;
         $_SESSION['login'] = 'true';
         redirect('/');
     }else{
         //if password is wrong
+
+        setcookie('fail', 'fail');
         $_SESSION['login'] = 'false';
         redirect('/');
     }

@@ -5,8 +5,8 @@
 ?>
 <div class="account">
     <h1>Marvel instagram</h1>
-    <form class="loggin" action="app/users/login.php" method="post">
-        <p><?php echo $messageLogin ?> </p>
+    <form class="loggin" action="app/users/login.php" method="post">    
+    <h4><?php echo $_COOKIE['messageLog'] ?> </h4>
         <div class="form-gruop">
             <label for="email"></label>
             <input class="input" type="email" name="email" id="email" placeholder="Email" required>
@@ -18,7 +18,7 @@
             <input class="form-control" type="password" name="password" id="password" placeholder="Password" autocomplete="off" required>
         </div><!-- /form-group -->
 
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary">Sign in</button>
     </form>
     <?php require __DIR__ . '/../account_AddRemove/addAc.php'; ?>
 </div>
