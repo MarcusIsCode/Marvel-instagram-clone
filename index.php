@@ -26,6 +26,7 @@ $id = (int) $id;
 
                 //when login out  
                 echo '<br><br>'. $message . $_SESSION['user']['profile_name'];
+                require __DIR__;
                 require __DIR__ . '/views/loggin_out/out.php';//loggout
         } 
        ?>
