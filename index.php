@@ -24,10 +24,7 @@ require __DIR__ . '/app/autoload.php';
 
                 //when login out  
                 echo '<br><br>'. $message . $_SESSION['user']['profile_name'];
-                require __DIR__ . '/views/singed in/headerIn.php';
                 require __DIR__ . '/views/singed in/loggedIn.php';
-                require __DIR__ . '/views/singed in/out.php'; 
-        
         } 
        ?>
    

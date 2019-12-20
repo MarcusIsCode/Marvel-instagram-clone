@@ -1,14 +1,17 @@
 <?php 
 $id = $_SESSION["user"]['id'];
 $id = (int) $id;
-echo $id;
-echo  'hello';
 
-$posts = 'SELECT * FROM posts';
+$posts = 'SELECT * FROM posts where user_id =:user_id';
  
 $statement = $pdo -> prepare($posts);
+$statement->execute([
+    'user_id' => $id
+]);
 
-$statement->execute();
-$getPosts = $statement ->fetch(PDO::FETCH_ASSOC);
+$getPosts = $statement ->fetchAll(PDO::FETCH_ASSOC);
+
+
 print_r($getPosts);
- ?>
+echo $id;
+?>
