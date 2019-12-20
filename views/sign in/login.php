@@ -18,7 +18,7 @@
             <input class="form-control" type="password" name="password" id="password" placeholder="Password" autocomplete="off" required>
         </div><!-- /form-group -->
 
-        <button type="submit" class="btn btn-primary">Sign in</button>
+        <button type="submit" class="btn">Sign in</button>
     </form>
-    <?php require __DIR__ . '/../account_AddRemove/addAc.php'; ?>
+    <?php require __DIR__ . '/addAc.php'; ?>
 </div>

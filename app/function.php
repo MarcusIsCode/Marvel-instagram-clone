@@ -1,7 +1,19 @@
 <?php
+/**
+ unset all given sessions
+ **/
+if (!function_exists('unsetSession')) {
+    function unsetSession(){
+    $argument  = func_get_args();
+    foreach($argument as $arg){
+        unset($arg);
+        
+        }
+    }
+}
 
 
-if (!function_exists('redirect')) {
+if (!function_exists('redirect') ){
     /**
      * Redirect the user to given path.
      *
@@ -15,4 +27,7 @@ if (!function_exists('redirect')) {
         exit;
     }
 }
+
+
+
 ?>
