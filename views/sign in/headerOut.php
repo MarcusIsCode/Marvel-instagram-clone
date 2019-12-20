@@ -12,5 +12,5 @@
     <link href="https://unpkg.com/sanitize.css/typography.css" rel="stylesheet" />
     <!--css files -->
     <link rel="stylesheet" href="assets\css\main.css">
-    <link rel="stylesheet" href="assets\css\loggin.css">
+    <link rel="stylesheet" href="assets\css\login.css">
 </head>
