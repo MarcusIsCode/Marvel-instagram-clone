@@ -29,7 +29,7 @@ for ($i=0; $i < sizeof($checkEmail) ; $i++) {
 
 }
 
-    /*creat account */
+    /*create account */
 $insert = 'INSERT INTO users (email, password, profile_bio, profile_image, profile_name) VALUES
  (:email,:password,:profile_bio,:profile_image,:profile_name)';
 $statement = $pdo->prepare($insert);

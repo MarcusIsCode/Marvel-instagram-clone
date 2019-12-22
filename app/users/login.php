@@ -24,8 +24,6 @@ if(isset($_POST['email'],$_POST['password'] )){
         redirect('/');
     }else{
         //if password is wrong
-
-        setcookie('fail', 'fail');
         $_SESSION['login'] = 'false';
         redirect('/');
     }

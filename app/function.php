@@ -5,8 +5,9 @@
 if (!function_exists('unsetSession')) {
     function unsetSession(){
     $argument  = func_get_args();
+    
     foreach($argument as $arg){
-        unset($arg);
+        unset($_SESSION[$arg]);
         
         }
     }
