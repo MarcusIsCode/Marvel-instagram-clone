@@ -21,8 +21,8 @@ $statement-> execute(['email' => $email]);
 $checkEmail = $statement -> fetchAll(PDO::FETCH_ASSOC); 
 
 for ($i=0; $i < sizeof($checkEmail) ; $i++) { 
-     if ($checkEmail[$i]['email'] === $email){  
-         $_SESSION['account'] = 'false';
+     if ($checkEmail[$i]['email'] === $email){
+            $_SESSION['error']['account'] = 'email already exists';
          redirect('/'); //add message here for rederict
          
      }

@@ -1,8 +1,6 @@
 <?php
 //header('Content-Type: application/json');
-$id = $_SESSION["user"]['id'];
 
-$id = (int) $id;
 
 
 $posts = 'SELECT * FROM posts where user_id =:user_id;';

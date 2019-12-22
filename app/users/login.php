@@ -7,24 +7,24 @@ if(isset($_POST['email'],$_POST['password'] )){
  
 
 
-    $statment = $pdo -> prepare('SELECT * FROM  users WHERE email =:email');
-    $statment -> bindParam(':email', $email, PDO::PARAM_STR);
-    $statment->execute();
-    $user = $statment -> fetch(PDO::FETCH_ASSOC);
+    $statement = $pdo -> prepare('SELECT * FROM  users WHERE email =:email');
+    $statement -> bindParam(':email', $email, PDO::PARAM_STR);
+    $statement->execute();
+    $user = $statement -> fetch(PDO::FETCH_ASSOC);
    //check if user exists
     if(!$user){
-        $_SESSION['login'] = 'false';
+        $_SESSION['error']['signIn']= 'User doesn\'t exist';
         redirect('/');
     };
     //check password
     if (password_verify($_POST['password'], $user['password'])) {
         unset($user['password']);
         $_SESSION['user']= $user;
-        $_SESSION['login'] = 'true';
+        
         redirect('/');
     }else{
         //if password is wrong
-        $_SESSION['login'] = 'false';
+        $_SESSION['error']['signIn'] = 'wrong password';
         redirect('/');
     }
     

@@ -29,6 +29,12 @@ if (!function_exists('redirect') ){
     }
 }
 
+if($_SESSION["user"]){
+$id = $_SESSION["user"]['id'];
+$id = (int) $id;
+}else{
+    $id = null;
+};
 
 
 ?>
