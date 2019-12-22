@@ -15,9 +15,9 @@ $getPosts = $statement ->fetchAll(PDO::FETCH_ASSOC);
 
 $json = json_encode($getPosts);
 file_put_contents(__DIR__.'/getData.json', $json);
-
+/* 
 print_r($json);
 
 print_r($getPosts);
-
+ */
 ?>
