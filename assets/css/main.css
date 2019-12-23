@@ -22,7 +22,7 @@ body{
     min-width: 100vw;
     background: rgb(30,38,57);
     background: linear-gradient(180deg, rgba(30,38,57,0.8074580173866421) 0%, rgba(149,30,34,0.19121151878720233) 90%);
-    
+ 
 }
 button{
     margin-top:5px;
@@ -35,4 +35,5 @@ button{
 button::after{
     background:red;
 }
+
 

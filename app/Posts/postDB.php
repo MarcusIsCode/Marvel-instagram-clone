@@ -1,10 +1,13 @@
 <?php
 require __DIR__.'/../autoload.php';
-
-if(isset($_POST['img'], $_POST['postText'] )){
-    $img = $_POST['img'];
-    $post = $_POST['postText'];
-
+$rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
+echo $rootDir;
+if(isset($_FILES['img'], $_POST['postText'] )){
+    $img = $_FILES['img'];
+    $post = filter_var($_POST['postText'], FILTER_SANITIZE_STRING) ;
+ 
+    die(var_dump(__DIR__.$img));
+    
 
 $newPost = 'INSERT INTO posts(user_id,post_img, text) VALUES
  (:user_id,:post_img,:text)';
@@ -14,11 +17,11 @@ if (!$statement) {
     die(var_dump($pdo->errorInfo()));
 }
 
-$statement->execute([
+/* $statement->execute([
     ':user_id' => $id,
     ':post_img' => $img,
     ':text' => $post
 ]);
-redirect('/');
+redirect('/'); */
 }
 ?>
