@@ -24,18 +24,11 @@ body{
     background: linear-gradient(180deg, rgba(30,38,57,0.8074580173866421) 0%, rgba(149,30,34,0.19121151878720233) 90%);
  
 }
-button{
-    margin-top:5px;
-    width:150px;
-    background: var(--lightBlue);
+.profile{
+    width:100vw;
+    height:100vh;
+    background:var(--darkBlue);
+    position: absolute;
     color:white;
-    border-radius: 3px;
-    border:1px solid var(--lightBlue);
+    z-index: 1;
 }
-button::after{
-    background:red;
-}
-img{
-    width:80vw;
-}
-

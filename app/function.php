@@ -1,7 +1,5 @@
 <?php
-/**
- unset all given sessions
- **/
+//unset all given sessions
 if (!function_exists('unsetSession')) {
     function unsetSession(){
     $argument  = func_get_args();
