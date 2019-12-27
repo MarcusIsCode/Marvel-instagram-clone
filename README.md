@@ -1,4 +1,4 @@
 # picture this
-<img src="https://media.giphy.com/media/tVWRqDXkv5wVG/giphy.gif" width="100%">
+<img src="https://media.giphy.com/media/3c2i2TC2FT5KM/giphy.gif" width="100%">
 
 ## in progress
