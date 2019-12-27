@@ -17,3 +17,21 @@ function showMyImage(fileInput) {
         reader.readAsDataURL(file);
     }
 }
+
+/* const navigate =document.querySelectorAll('.navigate');
+const nav = Array.apply(null, navigate);
+const profile = document.querySelector('.profile'); */
+/* console.log(profile);
+
+const openWindow = (event) => {
+    let click = event.target;
+    if(click === nav[0]){
+       profile.classList.remove('hide');
+    }
+}
+for (let i = 0; i < nav.length; i++) {
+    
+    nav[i].addEventListener('click',openWindow);
+    
+} */
+

@@ -26,9 +26,15 @@ body{
 }
 .profile{
     width:100vw;
-    height:100vh;
+    height:90vh;
     background:var(--darkBlue);
     position: absolute;
     color:white;
-    z-index: 1;
+   
+}
+
+.navigate{
+    border:1px solid black;
+    width:50px;
+    height:50px,
 }

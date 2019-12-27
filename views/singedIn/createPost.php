@@ -1,9 +1,4 @@
-<?php
-if (isset($_POST['unPost'])) {
-    unsetPost('post');
-}
 
-?>
 
 
 <div class="createPost">
