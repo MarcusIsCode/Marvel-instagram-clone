@@ -12,7 +12,16 @@ if (!function_exists('unsetSession')) {
         }
     }
 }
+if (!function_exists('unsetPost')) {
+    function unsetPost()
+    {
+        $argument  = func_get_args();
 
+        foreach ($argument as $arg) {
+            unset($_POST[$arg]);
+        }
+    }
+}
 
 if (!function_exists('redirect') ){
     /**

@@ -1,8 +1,5 @@
- 
-
-  
-    
-  <script src="assets/script/scirpt.js"></script>
+  <p>heelo</p>
+  <script src="assets/script/script.js"></script>
   </body>
 
   </html>

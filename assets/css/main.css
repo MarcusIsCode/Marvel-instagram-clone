@@ -35,5 +35,7 @@ button{
 button::after{
     background:red;
 }
-
+img{
+    width:80vw;
+}
 

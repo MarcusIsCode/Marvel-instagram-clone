@@ -1,12 +1,21 @@
 <?php
 require __DIR__.'/../autoload.php';
-$rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
-echo $rootDir;
+
 if(isset($_FILES['img'], $_POST['postText'] )){
     $img = $_FILES['img'];
     $post = filter_var($_POST['postText'], FILTER_SANITIZE_STRING) ;
- 
-    die(var_dump(__DIR__.$img));
+    print_r($img);
+    
+    
+    if($img['size'] > 2000000 ){
+        $_SESSION['error']['fileSize'] = 'image to big';
+        //redirect('/');
+    }
+    
+    if (in_array($img['type'],['image/jpeg', 'image/png'])) {
+        $_SESSION['error']['type'] = 'only accept jpeg and png images';
+        //redirect('/');
+    }
     
 
 $newPost = 'INSERT INTO posts(user_id,post_img, text) VALUES
