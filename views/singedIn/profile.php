@@ -1,14 +1,11 @@
-<?php require __DIR__ . '/../header.php' ?>
-<div class="profile hide">
 
-    <form action="/" method="post">
-        <button type="submit" name=>x</button>
-    </form>
+<div class="profile">
+
 
     <img src="<?php echo $_SESSION['user']['profile_image'] ?>">
-    <h2> <?php echo $_SESSION['user']['profile_name'] ?></h2>
-    <h2> <?php echo $_SESSION['user']['email'] ?></h2>
-    <p><?php echo $_SESSION['user']['profile_bio'] ?></p>
+    <h2> Name: <?php echo $_SESSION['user']['profile_name'] ?></h2>
+    <h2>Email: <?php echo $_SESSION['user']['email'] ?></h2>
+    <p>Bio:<?php echo $_SESSION['user']['profile_bio'] ?></p>
 
 
     <div class="profileSettings">
@@ -18,8 +15,8 @@
                 <label for="emailCreat"></label>
                 <input class="input" type="email" name="email" id="emailCreat" placeholder="New Email">
 
-                <label for="heroName"></label>
-                <input class="input" type="text" name="heroName" id="heroName" placeholder="New name">
+                <label for="name"></label>
+                <input class="input" type="text" name="name" id="name" placeholder="New name">
 
             </div>
 
@@ -33,17 +30,24 @@
 
             <div class="form-group">
                 <label for="textArea"></label>
-                <textarea class="textArea" name="biography" id="textArea" placeholder="write somthing about yourself"></textarea>
+                <textarea class="textArea" name="bio" id="textArea" placeholder="write somthing about yourself"></textarea>
             </div>
             <div class="form-group">
                 <label for="profileImg"></label>
                 <input type="file" name="img" id="profileImg" src="" alt="" placeholder="profilepic">
             </div>
-            <button type="submit" class="btn">Uppdate Account</button>
+
+            <div class="confirm hide">
+                <h3>Write your password to confirm changes</h3>
+                <label for="passwordConfirm"></label>
+                <input class="form-control" type="password" name="passwordConfirm" id="passwordConfirm" placeholder="password" autocomplete="off">
+                
+                <button type="submit" class="btn">confirm</button>
+
+            </div>
         </form>
+        <button type="submit" class="updateAccount">Update Account</button>
 
     </div>
-    <button type="submit" name='settings'>Account settings</button>
 </div>
 </div>
-<?php require __DIR__ . '/../footer.php' ?>

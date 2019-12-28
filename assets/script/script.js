@@ -1,8 +1,12 @@
-function showMyImage(fileInput) {
+const updateAccount = document.querySelector('.updateAccount');
+const confirmBox = document.querySelector('.confirm');
+
+
+/* function showMyImage(fileInput) {
     var files = fileInput.files;
     for (var i = 0; i < files.length; i++) {
         var file = files[i];
-        var imageType = /image.*/;
+        var imageType = /image.;
         if (!file.type.match(imageType)) {
             continue;
         }
@@ -16,7 +20,13 @@ function showMyImage(fileInput) {
         })(img);
         reader.readAsDataURL(file);
     }
-}
+} */
+updateAccount.addEventListener('click',()=>{
+        confirmBox.classList.remove('hide');
+        console.log(confirmBox);
+})
+
+
 
 /* const navigate =document.querySelectorAll('.navigate');
 const nav = Array.apply(null, navigate);

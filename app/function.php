@@ -35,6 +35,28 @@ if (!function_exists('redirect') ){
         exit;
     }
 }
+if(!function_exists('nav')){
+
+
+function nav(array $navBtn, string $name, string $path)
+{
+    for ($i = 0; $i < count($navBtn); $i++) {
+        if ($navBtn[$i] = $name) {
+            continue;
+        }
+        unsetPost($navBtn[$i]);
+        unsetSession($navBtn[$i]);
+    }
+
+    if (isset($_POST[$name])) {
+        $_SESSION[$name] = true;
+    }
+    if (isset($_SESSION[$name])) {
+        return require $path;
+    }
+}
+}
+
 
 if($_SESSION["user"]){
 $id = $_SESSION["user"]['id'];

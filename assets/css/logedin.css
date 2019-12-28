@@ -42,3 +42,14 @@ nav{
  justify-content: space-evenly;
 }
 
+.hide{
+    display: none;
+}
+.confirm{
+    background: var(--ruby);
+    padding:2px;
+    position: fixed;
+    z-index: 4;
+    top:30vh;
+    box-shadow: 0px 0px 1000px 100px black;
+}
