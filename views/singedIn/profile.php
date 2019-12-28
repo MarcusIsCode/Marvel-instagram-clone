@@ -1,7 +1,7 @@
 
 <div class="profile">
 
-
+    <!--Tanke använda json för att vissa detta-->
     <img src="<?php echo $_SESSION['user']['profile_image'] ?>">
     <h2> Name: <?php echo $_SESSION['user']['profile_name'] ?></h2>
     <h2>Email: <?php echo $_SESSION['user']['email'] ?></h2>

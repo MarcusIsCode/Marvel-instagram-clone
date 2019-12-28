@@ -38,16 +38,14 @@ if (!function_exists('redirect') ){
 if(!function_exists('nav')){
 
 
-function nav(array $navBtn, string $name, string $path)
-{
-    for ($i = 0; $i < count($navBtn); $i++) {
-        if ($navBtn[$i] = $name) {
-            continue;
-        }
-        unsetPost($navBtn[$i]);
-        unsetSession($navBtn[$i]);
+function nav(array $navBtn, string $name, string $path){
+     foreach ($navBtn as $btn){
+       if($btn === $name){
+         continue;
+       }else{
+           unsetSession($btn);   
+       }
     }
-
     if (isset($_POST[$name])) {
         $_SESSION[$name] = true;
     }
