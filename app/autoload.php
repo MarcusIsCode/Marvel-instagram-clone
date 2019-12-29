@@ -10,13 +10,13 @@ setcookie('messageLog', "message",time() +(5 * 60));
 setcookie('messageAc', "message", time() + (5 * 60));
 
 //header('Content-Type: application/json');
-require __DIR__.'/function.php';
 
 
 
 $db = sprintf('sqlite:%s/database/instagram_clone.db',__DIR__ );
 
 $pdo = new PDO($db);
+require __DIR__.'/function.php';
 
 
 ?>

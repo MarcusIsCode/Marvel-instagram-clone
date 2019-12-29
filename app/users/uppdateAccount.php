@@ -15,22 +15,18 @@ if (isset($_POST['passwordConfirm']) && !empty($_POST['passwordConfirm'])) {
     $name = $_POST['name'];
     $img = $_FILES['img'];
     
-    
     if($_POST['password'] === $_POST['password2']){    
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     }else{
-        echo 'wrong password 1 o 2';
+        $_SESSION['error']['update'] = "new password doesn't match";
         // redirect and sesion message passswrod no match;
     }
-    
-    if ($img['size'] > 2000000 && in_array($img['type'], ['image/jpeg', 'image/png'])) {
-        //$_SESSION['error']['fileSize'] = 'file sie to big or wrong file type';
-        //redirect('/');
-        echo 'no';
-    }
+    checkImg($img, '/');
+    checkMail($pdo, $email,'update');
+
    
     if(password_verify($_POST['passwordConfirm'], $userInfo['password'])){
-        echo 'yes2';
+       
         $statement = $pdo->prepare('UPDATE users
         SET email=:email,
             password =:password,
@@ -49,15 +45,13 @@ if (isset($_POST['passwordConfirm']) && !empty($_POST['passwordConfirm'])) {
             ':id' => $id
             ]);
 
-        if (!$statement) {
-            die(var_dump($pdo->errorInfo()));
-        }
+      
     }
 
 
 }else{
 
-    // $_SESSION['error]= 'wrong password';
-    //redirect('/');
+    $_SESSION['error']['update'] = 'wrong password';
+    redirect('/');
 
 }

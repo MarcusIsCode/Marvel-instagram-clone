@@ -1,4 +1,3 @@
-
 <div class="profile">
 
     <!--Tanke använda json för att vissa detta-->
@@ -38,11 +37,13 @@
             </div>
 
             <div class="confirm hide">
+
                 <h3>Write your password to confirm changes</h3>
                 <label for="passwordConfirm"></label>
                 <input class="form-control" type="password" name="passwordConfirm" id="passwordConfirm" placeholder="password" autocomplete="off">
-                
+
                 <button type="submit" class="btn">confirm</button>
+                <spam class='close'>cancel</spam>
 
             </div>
         </form>

@@ -1,5 +1,6 @@
 const updateAccount = document.querySelector('.updateAccount');
 const confirmBox = document.querySelector('.confirm');
+const close = document.querySelector('.close');
 
 
 /* function showMyImage(fileInput) {
@@ -23,9 +24,12 @@ const confirmBox = document.querySelector('.confirm');
 } */
 updateAccount.addEventListener('click',()=>{
         confirmBox.classList.remove('hide');
-        console.log(confirmBox);
+        
 })
+close.addEventListener('click', () => {
+    confirmBox.classList.add('hide');
 
+})
 
 
 /* const navigate =document.querySelectorAll('.navigate');

@@ -20,6 +20,37 @@ if (!function_exists('unsetPost')) {
         }
     }
 }
+//check if image is right type and size if not redirect with session message
+if(!function_exists('checkImg')){
+    function checkImg(array $img, string $path)
+    {
+        if ($img['size'] > 2000000) {
+            return $_SESSION['error']['fileSize'] = 'image to big';
+          redirect($path);  
+        }
+
+        if (in_array($img['type'], ['image/jpeg', 'image/png'])) {
+            $_SESSION['error']['type'] = 'only accept jpeg and png images';
+            redirect($path);
+        }
+    }
+}
+if(!function_exists('checkMail')){
+    function checkMail($pdo, $email,$type){
+        $emailCheck = 'SELECT email, profile_name FROM users where email = :email';
+        $statementEmail = $pdo->prepare($emailCheck);
+        $statementEmail->execute([':email' => $email]);
+        $checkEmail = $statementEmail->fetchAll(PDO::FETCH_ASSOC);
+
+        for ($i = 0; $i < sizeof($checkEmail); $i++) {
+            if ($checkEmail[$i]['email'] === $email) {
+                $_SESSION['error'][$type] = 'email already exists';
+                redirect('/');
+            }
+        }
+    }    
+}
+
 
 if (!function_exists('redirect') ){
     /**
