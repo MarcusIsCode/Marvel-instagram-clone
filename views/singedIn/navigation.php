@@ -10,13 +10,15 @@ nav($navButtons, 'post', __DIR__ . '/createPost.php')
 
 
 ?>
-<nav>
+<nav class="nav bg-dark">
         <form action="/" method="post">
-                <button type="submit" name="home">Home</button>
-                <button type="submit" name="profile"> <img src="" class="navigate profileBtn"></button>
-                <button type="submit" name="post">
-                        <div class="navigate  postBtn">+</div>
-                </button>        
+                <button class="btn bg-dark" type="submit" name="home"><img src="assets\Images\icons\icons8-home-48.png"></button>
+                <button class="btn bg-dark" type="submit" name="profile"> <img src="assets\Images\icons\user.svg" class="prfBorder"></button>
+                <button class="btn bg-dark border border-white" type="submit" name="post">
+                        <div class="postBtn">
+                                +
+                        </div>
+                </button>
         </form>
         <?php require __DIR__ . '/out.php' ?>
 </nav>

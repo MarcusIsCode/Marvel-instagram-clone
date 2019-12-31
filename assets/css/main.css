@@ -7,34 +7,89 @@
     --ruby:#951E22;
     --bloodRd:#951E22;
 }
-* {
-  padding: 0;
-  margin: 0;
-}
-article,aside,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section { 
-    display:block;   
-}
-
 body{
-    min-height: 100vh;
-    height:100%;
-    min-width: 100vw;
-    background: rgb(30,38,57);
-    background: linear-gradient(180deg, rgba(30,38,57,0.8074580173866421) 0%, rgba(149,30,34,0.19121151878720233) 90%);
- 
+  min-height: 100vh;
+  min-width: 100vw;
+ background: #0F2027;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
-.profile{
-    width:100vw;
-    height:90vh;
-    background:var(--darkBlue);
-    position: absolute;
-    color:white;
-   
+.signIn{
+background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0)));
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+	background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+
+	-webkit-box-shadow: 3px 3px 10px rgba(0,0,0,0.4),	inset 0 0 10px rgba(255,255,255, 0.8); 
+	-moz-box-shadow: 	3px 3px 10px rgba(0,0,0,0.4),	inset 0 0 10px rgba(255,255,255, 0.8);
+	box-shadow: 		3px 3px 10px rgba(0,0,0,0.4),	inset 0 0 10px rgba(255,255,255, 0.8);
+	
+	
 }
 
-.navigate{
-    border:1px solid black;
-    width:50px;
-    height:50px,
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn {
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+.upload{
+    margin:0;
+    position: relative;
+    
+    
+}
+nav{
+  position: fixed;
+  bottom:0px;
+  width:100%;
+  padding:4px 0px;
+}
+nav .btn{
+  border-width: 0px;
+  width:55px;
+  height:55px;
+  overflow: hidden;
+  padding:0px;
+  margin-left:3px;
+
+}
+nav .btn img{
+  width: 55px;
+  position: relative;
+  left:50%;
+  transform: translate(-50%,-10%) scale(0.7);
+  margin-top: 5px;
+}
+.prfBorder{
+  border-radius: 50%;
+  border:2px solid white;
+}
+.postBtn{
+ 
+  font-size:46px;
+  color:white;
+  margin-top:-15px;
+  
 }

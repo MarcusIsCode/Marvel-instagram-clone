@@ -1,13 +1,15 @@
+
+
 const updateAccount = document.querySelector('.updateAccount');
 const confirmBox = document.querySelector('.confirm');
 const close = document.querySelector('.close');
 
 
-/* function showMyImage(fileInput) {
+function showMyImage(fileInput) {
     var files = fileInput.files;
     for (var i = 0; i < files.length; i++) {
         var file = files[i];
-        var imageType = /image.;
+        var imageType = /image.*/;
         if (!file.type.match(imageType)) {
             continue;
         }
@@ -21,16 +23,18 @@ const close = document.querySelector('.close');
         })(img);
         reader.readAsDataURL(file);
     }
-} */
-updateAccount.addEventListener('click',()=>{
-        confirmBox.classList.remove('hide');
-        
-})
-close.addEventListener('click', () => {
-    confirmBox.classList.add('hide');
+}
+if (updateAccount !== null) {
 
-})
-
+    updateAccount.addEventListener('click',()=>{
+        confirmBox.classList.remove('hide');        
+    })
+    
+    close.addEventListener('click', () => {
+        confirmBox.classList.add('hide');    
+    })
+    
+}
 
 /* const navigate =document.querySelectorAll('.navigate');
 const nav = Array.apply(null, navigate);
