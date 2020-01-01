@@ -2,8 +2,9 @@
     <h2 class="text-center">New User</h2>
     <form class="addAccount" action="app/users/creatAccount.php" method="post">
         <h4><?php echo $_COOKIE['messageAc'] ?></h4>
-        <label for="imgs"><img class="img-fluid" id="thumbnil"></label>
+
         <div class="custom-file text-center upload">
+            <label for="imgs"><img class="img-fluid" id="thumbnil"></label>
             <div class="upload-btn-wrapper">
                 <button class="btn">Upload profile image</button>
                 <input type="file" id="imgs" name="img" required onchange='showMyImage(this)'>

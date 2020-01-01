@@ -2,7 +2,7 @@
 
 const updateAccount = document.querySelector('.updateAccount');
 const confirmBox = document.querySelector('.confirm');
-const close = document.querySelector('.close');
+const close = document.querySelector('.closeBtn');
 
 
 function showMyImage(fileInput) {

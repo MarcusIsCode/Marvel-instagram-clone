@@ -1,5 +1,5 @@
 
-<div class="createPost">
+<div class="createPost upload-btn-wrapper">
     <form action="/../../app/Posts/postDB.php" method="post" enctype="multipart/form-data">
         <label for="imgs"><img id="thumbnil"></label>
         <input type="file" name="img" id="imgs" required onchange='showMyImage(this)' width=200px;>

@@ -14,9 +14,9 @@ nav($navButtons, 'post', __DIR__ . '/createPost.php')
         <form action="/" method="post">
                 <button class="btn bg-dark" type="submit" name="home"><img src="assets\Images\icons\icons8-home-48.png"></button>
                 <button class="btn bg-dark" type="submit" name="profile"> <img src="assets\Images\icons\user.svg" class="prfBorder"></button>
-                <button class="btn bg-dark border border-white" type="submit" name="post">
+                <button class="btn bg-dark" type="submit" name="post">
                         <div class="postBtn">
-                                +
+                               <p>+</p> 
                         </div>
                 </button>
         </form>
