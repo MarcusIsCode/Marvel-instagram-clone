@@ -6,12 +6,12 @@
         <div class="custom-file text-center upload">
             <label for="imgs"><img class="img-fluid" id="thumbnil"></label>
             <div class="upload-btn-wrapper">
-                <button class="btn">Upload profile image</button>
+                <button class="btn btn-dark">Upload profile image</button>
                 <input type="file" id="imgs" name="img" required onchange='showMyImage(this)'>
             </div>
         </div>
 
-        <div class="form-gruop">
+        <div>
             <label for="emailCreat"></label>
             <input class="form-control" type="email" name="email" id="emailCreat" placeholder="Email" required>
 

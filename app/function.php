@@ -1,6 +1,7 @@
 <?php
 //unset all given sessions
 if (!function_exists('unsetSession')) {
+    
     function unsetSession(){
     $argument  = func_get_args();
     
@@ -10,6 +11,7 @@ if (!function_exists('unsetSession')) {
         }
     }
 }
+//unset all given posts
 if (!function_exists('unsetPost')) {
     function unsetPost()
     {
@@ -22,6 +24,7 @@ if (!function_exists('unsetPost')) {
 }
 //check if image is right type and size if not redirect with session message
 if(!function_exists('checkImg')){
+
     function checkImg(array $img, string $path)
     {
         if ($img['size'] > 2000000) {
@@ -35,8 +38,12 @@ if(!function_exists('checkImg')){
         }
     }
 }
+
+
 if(!function_exists('checkMail')){
-    function checkMail($pdo, $email,$type){
+
+     
+    function checkMail($pdo, string $email, string $type){
         $emailCheck = 'SELECT email, profile_name FROM users where email = :email';
         $statementEmail = $pdo->prepare($emailCheck);
         $statementEmail->execute([':email' => $email]);
@@ -67,7 +74,8 @@ if (!function_exists('redirect') ){
     }
 }
 if(!function_exists('nav')){
-
+// requires the chosen site to the page.
+//: example click on profile button, profile page appears
 
 function nav(array $navBtn, string $name, string $path){
      foreach ($navBtn as $btn){

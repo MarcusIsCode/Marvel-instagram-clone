@@ -3,6 +3,7 @@
 declare(strict_types=1);
 require __DIR__ . '/app/autoload.php';
 require __DIR__ . '/views/header.php';
+
 ?>
 
 <body>
@@ -18,4 +19,8 @@ require __DIR__ . '/views/header.php';
     }
     ?>
 
-    <?php require __DIR__ . '/views/footer.php' ?>
+
+    <?php
+
+
+    require __DIR__ . '/views/footer.php' ?>

@@ -3,8 +3,9 @@ if (isset($_POST['home'])) {
         unsetPost('profile', 'post');
         unsetSession('profile', 'post');
 }
-$navButtons = ['profile', 'post'];
 
+
+$navButtons = ['profile', 'post'];
 nav($navButtons, 'profile', __DIR__ . '/profile.php');
 nav($navButtons, 'post', __DIR__ . '/createPost.php')
 
