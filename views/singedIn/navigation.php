@@ -1,9 +1,9 @@
 <?php
-if (isset($_POST['home'])) {
+/* if (isset($_POST['home'])) {
         unsetPost('profile', 'post');
         unsetSession('profile', 'post');
 }
-
+ */
 
 $navButtons = ['profile', 'post'];
 nav($navButtons, 'profile', __DIR__ . '/profile.php');
@@ -17,7 +17,7 @@ nav($navButtons, 'post', __DIR__ . '/createPost.php')
                 <button class="btn bg-dark" type="submit" name="profile"> <img src="assets\Images\icons\user.svg" class="prfBorder"></button>
                 <button class="btn bg-dark" type="submit" name="post">
                         <div class="postBtn">
-                               <p>+</p> 
+                                <p>+</p>
                         </div>
                 </button>
         </form>

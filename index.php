@@ -7,6 +7,7 @@ require __DIR__ . '/views/header.php';
 ?>
 
 <body>
+<?php print_r($_SESSION['error']) ?>
     <?php
     if (!$_SESSION['user']) {
         //login and create account
@@ -18,7 +19,7 @@ require __DIR__ . '/views/header.php';
         require __DIR__ . '/views/singedIn/loggedIn.php';
     }
     ?>
-
+    
 
     <?php
 

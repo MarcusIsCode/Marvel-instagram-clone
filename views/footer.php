@@ -1,4 +1,5 @@
+<script src="assets/script/script.js"></script>
+<script src="assets/script/fetch.js"></script>
+</body>
 
-  <script src="assets/script/script.js"></script>
-  </body>
-  </html>
+</html>

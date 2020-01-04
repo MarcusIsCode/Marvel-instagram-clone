@@ -3,7 +3,7 @@
         <button type="submit" name="home" class="close text-white text-lg">X</button>
     </form>
 
-    <form class="d-flex align-items-center flex-column mt-2" action="/../../app/Posts/postDB.php" method="post" enctype="multipart/form-data">
+    <form class="d-flex align-items-center flex-column mt-2" action="/app/Posts/postDB.php" method="post" enctype="multipart/form-data">
     <label for="imgs"><img class="img-fluid" id="thumbnil"></label>
     <div class="custom-file  text-center upload mb-3">
             <div class="upload-btn-wrapper pb-2">

@@ -4,22 +4,28 @@ require __DIR__.'/../autoload.php';
 if(isset($_FILES['img'], $_POST['postText'] )){
     $img = $_FILES['img'];
     $post = filter_var($_POST['postText'], FILTER_SANITIZE_STRING) ;
-    
-  
-checkImg ($img,'/');
+
+
+$targetPath = __DIR__. '/../../assets/Images/post_img/';
+
+SaveCheckImg ($img,'/',$targetPath,);
+
+
 $newPost = 'INSERT INTO posts(user_id,post_img, text) VALUES
  (:user_id,:post_img,:text)';
-
 $statement  = $pdo -> prepare($newPost);
 if (!$statement) {
     die(var_dump($pdo->errorInfo()));
 }
 
-/* $statement->execute([
+
+ $statement->execute([
     ':user_id' => $id,
-    ':post_img' => $img,
+    ':post_img' => $_SESSION['imgPath'],
     ':text' => $post
-]);
-redirect('/'); */
+    ]);
+    
+unsetSession('imgPath');
+redirect('/');
 }
 ?>

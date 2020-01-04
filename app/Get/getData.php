@@ -1,16 +1,17 @@
 <?php
+require __DIR__ . '/../autoload.php';
 //header('Content-Type: application/json');
 
 
 
-$posts = 'SELECT * FROM posts where user_id =:user_id;';
+$posts = 'SELECT * FROM posts where post_id =:post_id;';
  
 $statement = $pdo -> prepare($posts);
 $statement->execute([
-    'user_id' => $id
+    ':post_id' => $id
 ]);
 $getPosts = $statement ->fetchAll(PDO::FETCH_ASSOC);
-
+print_r($getPosts);
 $json = json_encode($getPosts);
 file_put_contents(__DIR__.'/getData.json', $json);
 /* 

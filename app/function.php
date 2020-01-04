@@ -22,23 +22,42 @@ if (!function_exists('unsetPost')) {
         }
     }
 }
-//check if image is right type and size if not redirect with session message
-if(!function_exists('checkImg')){
 
-    function checkImg(array $img, string $path)
+if(!function_exists('saveCheckImg')){
+/* 
+$img is the file array that is checked with filesize and type.
+
+$redirectPath is to redirect back when there is an error.
+
+$folderPath is where the image will be saved
+*/
+function saveCheckImg(array $img, string $redirectPath,string $folderPath):string
     {
+    $error =[];
         if ($img['size'] > 2000000) {
-            return $_SESSION['error']['fileSize'] = 'image to big';
-          redirect($path);  
+              $error[] = $img['name'].'exceeded filesize the filesize limit';
+          
         }
 
-        if (in_array($img['type'], ['image/jpeg', 'image/png'])) {
-            $_SESSION['error']['type'] = 'only accept jpeg and png images';
-            redirect($path);
+        if (!in_array($img['type'], ['image/jpeg', 'image/png'])) {
+            $error = 'only accept jpeg and png images';
         }
+        if(!empty($error)){
+            for ($i = 0; $i < 2; $i++) {
+
+                $_SESSION['error']['img'] = $error[$i];
+            }
+            redirect($redirectPath);
+        }else{
+            $newImagePath  = $folderPath . date('B') . '-' . $img['name'];
+           // move_uploaded_file($img['tmp_name'],$newImagePath);
+            return $_SESSION['imgPath'] = $newImagePath;
+            
+        }
+        
     }
+    
 }
-
 
 if(!function_exists('checkMail')){
 
