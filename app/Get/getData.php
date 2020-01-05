@@ -8,7 +8,7 @@ $posts = 'SELECT * FROM posts where post_id =:post_id;';
  
 $statement = $pdo -> prepare($posts);
 $statement->execute([
-    ':post_id' => $id
+    ':post_id' => 17
 ]);
 $getPosts = $statement ->fetchAll(PDO::FETCH_ASSOC);
 print_r($getPosts);

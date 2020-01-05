@@ -6,9 +6,9 @@ if(isset($_FILES['img'], $_POST['postText'] )){
     $post = filter_var($_POST['postText'], FILTER_SANITIZE_STRING) ;
 
 
-$targetPath = __DIR__. '/../../assets/Images/post_img/';
+$imgPath = __DIR__. '/../../assets/Images/post_img/';
 
-SaveCheckImg ($img,'/',$targetPath,);
+SaveCheckImg ('post',$img,'/',$imgPath);
 
 
 $newPost = 'INSERT INTO posts(user_id,post_img, text) VALUES

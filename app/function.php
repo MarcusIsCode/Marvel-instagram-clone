@@ -30,8 +30,10 @@ $img is the file array that is checked with filesize and type.
 $redirectPath is to redirect back when there is an error.
 
 $folderPath is where the image will be saved
+
+
 */
-function saveCheckImg(array $img, string $redirectPath,string $folderPath):string
+function saveCheckImg(string $postOrProfileImg ,array $img, string $redirectPath,string $folderPath)
     {
     $error =[];
         if ($img['size'] > 2000000) {
@@ -50,8 +52,17 @@ function saveCheckImg(array $img, string $redirectPath,string $folderPath):strin
             redirect($redirectPath);
         }else{
             $newImagePath  = $folderPath . date('B') . '-' . $img['name'];
-           // move_uploaded_file($img['tmp_name'],$newImagePath);
-            return $_SESSION['imgPath'] = $newImagePath;
+            move_uploaded_file($img['tmp_name'],$newImagePath);
+            
+                if($postOrProfileImg === 'post'){
+                    return $_SESSION['imgPath'] = '/assets/Images/post_img/'. date('B') . '-' . $img['name'];
+                }
+
+                if ($postOrProfileImg === 'profile') {
+                    return $_SESSION['imgPath'] = '/assets/Images/profile_img/' . date('B') . '-' . $img['name'];
+                }
+
+
             
         }
         

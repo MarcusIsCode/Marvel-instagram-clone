@@ -1,3 +1,4 @@
+<?php unsetSession('error'); ?>
 <div class="d-flex flex-column shadow-lg p-2 m-2 mt-3 rounded bg-dark createPost upload-btn-wrapper">
     <form  action="/" method="post">
         <button type="submit" name="home" class="close text-white text-lg">X</button>
@@ -13,7 +14,7 @@
         </div>
 
         <textarea class=" mt-4 rounded" name='postText' id='postText' rows='3'></textarea>
-        <label class="" for="postText"></label>
+        <labe for="postText"></label>
 
         <button class="btn mt-1 pull-right btn-lg" type="submit">Share</button>
     </form>

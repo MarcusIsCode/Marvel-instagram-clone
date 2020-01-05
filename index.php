@@ -7,12 +7,16 @@ require __DIR__ . '/views/header.php';
 ?>
 
 <body>
-<?php print_r($_SESSION['error']) ?>
+<?php 
+
+
+ ?>
     <?php
     if (!$_SESSION['user']) {
         //login and create account
         $_COOKIE['messageLog'] = $_SESSION['error']['signIn'];
         $_COOKIE['messageAc'] = $_SESSION['error']['account'];
+        
         require __DIR__ . '/views/sign in/login.php';
         unsetSession('error');
     } else {

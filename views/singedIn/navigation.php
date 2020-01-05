@@ -13,7 +13,7 @@ nav($navButtons, 'post', __DIR__ . '/createPost.php')
 ?>
 <nav class="nav bg-dark">
         <form action="/" method="post">
-                <button class="btn bg-dark" type="submit" name="home"><img src="assets\Images\icons\icons8-home-48.png"></button>
+                <button class="btn bg-dark" type="submit" name="home"><img src="assets\Images\icons\home-sign.svg"></button>
                 <button class="btn bg-dark" type="submit" name="profile"> <img src="assets\Images\icons\user.svg" class="prfBorder"></button>
                 <button class="btn bg-dark" type="submit" name="post">
                         <div class="postBtn">
