@@ -7,13 +7,12 @@ date_default_timezone_set('UTC');
 mb_internal_encoding('UTF-8');
 //setcookie('account','Welcome loggin to comfirm your account');
 setcookie('messageLog', "message",time() +(5 * 60));
-setcookie('messageAc', "message", time() + (5 * 60));
 
 //header('Content-Type: application/json');
 
 
 
-$db = sprintf('sqlite:%s/database/instagram_clone.db',__DIR__ );
+$db = sprintf('sqlite:%s/database/insta-clone.db',__DIR__ );
 
 $pdo = new PDO($db);
 require __DIR__.'/function.php';

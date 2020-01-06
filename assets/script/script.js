@@ -24,6 +24,7 @@ function showMyImage(fileInput) {
         reader.readAsDataURL(file);
     }
 }
+
 if (updateAccount !== null) {
 
     updateAccount.addEventListener('click',()=>{

@@ -18,6 +18,7 @@ if(isset($_POST['like'])){
         ':user_id' => $id,
         ':post_id'=> $postId,
         ]);
+        redirect('/');
        }
            
        if($likeNum ===2){
@@ -32,8 +33,23 @@ if(isset($_POST['like'])){
 }
 
 
-if(isset($_POST['comment'])){
-    echo 'comment¨'; //check if empty
+if(isset($_POST['commentSub'])){
+  
+    $text = filter_var($_POST['comment'], FILTER_SANITIZE_STRING); //check if empty
+    if(empty($text)){
+        redirect('/');
+    }else{
+        $comment = 'INSERT INTO comment_posts(user_id,post_id,comment)
+             VALUES(:user_id,:post_id,:comment)';
+        $statement = $pdo->prepare($comment);
+        $statement ->execute([
+            ':user_id' => $id,
+            ':post_id' => $postId,
+            ':comment' => $text
+        ]);
+       redirect('/');     
+    }
+
 }
 
 ?>

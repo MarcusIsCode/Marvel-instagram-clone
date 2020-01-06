@@ -21,5 +21,5 @@ nav($navButtons, 'post', __DIR__ . '/createPost.php')
                         </div>
                 </button>
         </form>
-        <?php require __DIR__ . '/out.php' ?>
 </nav>
+<body>

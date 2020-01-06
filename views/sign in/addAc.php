@@ -1,7 +1,7 @@
 <div class="container-fluid-row p-2 my-1 rounded signIn">
     <h2 class="text-center">New User</h2>
-    <form class="addAccount" action="app/users/creatAccount.php" method="post">
-        <h4><?php echo $_COOKIE['messageAc'] ?></h4>
+    <form class="addAccount" action="app/users/creatAccount.php" method="post" enctype="multipart/form-data">
+        <h4><?php echo $_SESSION['Account']  ?></h4>
 
         <div class="custom-file text-center upload">
             <label for="imgs"><img class="img-fluid" id="thumbnil"></label>
@@ -35,3 +35,4 @@
         <button type="submit" class=" btn btn-dark">Create Account</button>
     </form>
 </div>
+<?php unsetSession('Account');?>

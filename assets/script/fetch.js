@@ -46,13 +46,13 @@ fetch('app/Get/getData.json')
                 elFactory('form', { class: 'd-flex p-2', action: "app/Posts/likeCommentDB.php", method: 'post' },
                     elFactory('input', { type: 'hidden', name: 'postId', value: `${myJson[0].post_id}` }),//forLoop
                     elFactory('textarea', {class: 'rounded w-100', rows: '2', type: 'text', name: 'comment',placeholder:'write a comment' },),
-                        elFactory('button', { class:'btn w-25', type: 'submit' }, 
+                       
+                        elFactory('button', { class:'btn w-25', type: 'submit', name:'commentSub' }, 
                             elFactory('img', { class: 'img-fluid', src: 'assets/Images/icons/send.svg'})
-                        )
+                        ),
+                       
                     )
                   )
     )        
             
-            document.body.appendChild(post);
-            document.body.appendChild(post.cloneNode(true));
         });

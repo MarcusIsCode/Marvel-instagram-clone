@@ -8,7 +8,7 @@ if(isset($_FILES['img'], $_POST['postText'] )){
 
 $imgPath = __DIR__. '/../../assets/Images/post_img/';
 
-SaveCheckImg ('post',$img,'/',$imgPath);
+SaveCheckImg ($id,'post',$img,'/',$imgPath);
 
 
 $newPost = 'INSERT INTO posts(user_id,post_img, text) VALUES

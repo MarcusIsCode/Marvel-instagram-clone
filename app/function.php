@@ -25,15 +25,17 @@ if (!function_exists('unsetPost')) {
 
 if(!function_exists('saveCheckImg')){
 /* 
+$postOrProfileImg is where the db will get the db
+
 $img is the file array that is checked with filesize and type.
 
 $redirectPath is to redirect back when there is an error.
 
 $folderPath is where the image will be saved
 
-
+return a imgPath session that is used to for the db.
 */
-function saveCheckImg(string $postOrProfileImg ,array $img, string $redirectPath,string $folderPath)
+function saveCheckImg(string $postOrProfileImg ,int $id,array $img, string $redirectPath,string $folderPath)
     {
     $error =[];
         if ($img['size'] > 2000000) {
@@ -55,11 +57,11 @@ function saveCheckImg(string $postOrProfileImg ,array $img, string $redirectPath
             move_uploaded_file($img['tmp_name'],$newImagePath);
             
                 if($postOrProfileImg === 'post'){
-                    return $_SESSION['imgPath'] = '/assets/Images/post_img/'. date('B') . '-' . $img['name'];
+                    return $_SESSION['imgPath'] = '/assets/Images/post_img/' . $id .'-'. time()  . '-' . $img['name'];
                 }
 
                 if ($postOrProfileImg === 'profile') {
-                    return $_SESSION['imgPath'] = '/assets/Images/profile_img/' . date('B') . '-' . $img['name'];
+                    return $_SESSION['imgPath'] = '/assets/Images/profile_img/'.$id.'-' .time() . '-' . $img['name'];
                 }
 
 
