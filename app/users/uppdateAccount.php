@@ -12,7 +12,6 @@ if (isset($_POST['passwordConfirm']) && !empty($_POST['passwordConfirm'])) {
     $img = $_POST['img'];
     $name = $_POST['name'];
     $img = $_FILES['img'];
-    
     if($_POST['password'] === $_POST['password2']){    
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     }else{
@@ -21,11 +20,20 @@ if (isset($_POST['passwordConfirm']) && !empty($_POST['passwordConfirm'])) {
     }
     
     $imgPath = __DIR__ . '/../../assets/Images/profile_img/';
-    if(!empty($img)){
-        saveCheckImg($id,'profile',$img, '/',$imgPath);
+    if(!empty($_FILES['img'])){
+        $files = scandir(__DIR__ . '/../../assets/Images/profile_img');     
+        $deletePath =__DIR__ . '/../../assets/Images/profile_img/'.$files[($id+1)];
+        unlink($deletePath);
+
+        saveCheckImg($id, 'profile', $img, '/', $imgPath);
+        $imgDb = $_SESSION['imgPath'];
+   
+    }else{
+        $imgDb = $userInfo['profile_image'];
     }    
     
     if(!empty($email)){
+        
         checkMail($pdo, $email,'update');
     }
     
@@ -42,20 +50,23 @@ if (isset($_POST['passwordConfirm']) && !empty($_POST['passwordConfirm'])) {
             ':email'=>(!empty($_POST['email'])? $email:$userInfo['email']),
             ':password' => (!empty($_POST['password']) ? $password : $userInfo['password']),
             ':profile_bio' => (!empty($_POST['bio']) ? $bio : $userInfo['profile_bio']),
-            ':profile_image'=> (!empty($_FILES['img'])?$img : $userInfo['profile_image']), 
+            ':profile_image'=> $imgDb, 
 	        ':profile_name'=> (!empty($_POST['name']) ? $name: $userInfo['profile_name']),
             ':id' => $id
             ]);
-       // $_SESSION['user']['profile_img'] (!empty($_FILES['img'])?$img : $userInfo['profile_image']);
-        $_SESSION['user']['profile_name'] = (!empty($_POST['name'])? $name:$userInfo['name']);
-        $_SESSION['user']['email'] = (!empty($_POST['email']) ? $bio : $userInfo['email']);
-        $_SESSION['user']['profile_bio']=(!empty($_POST['bio']) ? $bio : $userInfo['profile_bio']);   
-         redirect('/');
+        
+        $_SESSION['user']['profile_image'] = $imgDb;
+        $_SESSION['user']['profile_name'] = $userInfo['profile_name'];
+        $_SESSION['user']['email'] = $userInfo['email'];
+        $_SESSION['user']['profile_bio']= $userInfo['profile_bio'];   
+
+        unsetSession('imgPath');
+       redirect('/');
     }
 
 }else{
 
     $_SESSION['error']['update'] = 'wrong password';
-    redirect('/');
+   redirect('/');
 
 }

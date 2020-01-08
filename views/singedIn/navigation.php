@@ -22,4 +22,4 @@ nav($navButtons, 'post', __DIR__ . '/createPost.php')
                 </button>
         </form>
 </nav>
-<body>
+<body class="text-white">

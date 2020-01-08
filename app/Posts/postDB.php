@@ -26,6 +26,6 @@ if (!$statement) {
     ]);
     
 unsetSession('imgPath');
-redirect('/');
+redirect(__DIR__.'/../../Get/getData.php');
 }
 ?>

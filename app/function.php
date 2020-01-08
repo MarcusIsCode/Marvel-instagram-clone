@@ -35,7 +35,7 @@ $folderPath is where the image will be saved
 
 return a imgPath session that is used to for the db.
 */
-function saveCheckImg(string $postOrProfileImg ,int $id,array $img, string $redirectPath,string $folderPath)
+function saveCheckImg(int $id, string $postOrProfileImg ,array $img, string $redirectPath,string $folderPath)
     {
     $error =[];
         if ($img['size'] > 2000000) {
@@ -53,23 +53,19 @@ function saveCheckImg(string $postOrProfileImg ,int $id,array $img, string $redi
             }
             redirect($redirectPath);
         }else{
-            $newImagePath  = $folderPath . date('B') . '-' . $img['name'];
+            $newImagePath  = $folderPath . $id .'-'. time()  . '-' . $img['name'];
             move_uploaded_file($img['tmp_name'],$newImagePath);
             
                 if($postOrProfileImg === 'post'){
-                    return $_SESSION['imgPath'] = '/assets/Images/post_img/' . $id .'-'. time()  . '-' . $img['name'];
+                    return $_SESSION['imgPath'] = '/assets/Images/post_img/' . $id .'-'. time()  . '-' . $img['name'];   
                 }
 
-                if ($postOrProfileImg === 'profile') {
+                if ($postOrProfileImg === 'profile') { 
                     return $_SESSION['imgPath'] = '/assets/Images/profile_img/'.$id.'-' .time() . '-' . $img['name'];
                 }
-
-
-            
         }
         
     }
-    
 }
 
 if(!function_exists('checkMail')){

@@ -13,7 +13,7 @@
 </div>
 
 <div class="form-group m-5 pb-5 text-white">
-    <form class="addAccount" action="app/users/uppdateAccount.php" method="post">
+    <form class="addAccount" action="app/users/uppdateAccount.php" method="post" enctype="multipart/form-data">
         <h2>Change Account settings</h2>
         <hr class="style1 bg-white">
 
