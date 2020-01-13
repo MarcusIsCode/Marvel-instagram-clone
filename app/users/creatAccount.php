@@ -1,6 +1,5 @@
 <?php 
 require __DIR__ . '/../autoload.php';
-
 //if password dosn't match
 if(isset($_POST['password'],$_POST['password2']) &&  $_POST['password'] !== $_POST['password2']){
     $_SESSION['error']['account'] ="password doesn't match";
@@ -18,8 +17,17 @@ $img = $_FILES['img'];
 /**check if account exist with email and redirect to home page */
 checkMail($pdo, $email,'account');
 
+
+
+$tempID = 'SELECT id FROM users ORDER BY id DESC LIMIT 0, 1';
+$statement1 = $pdo ->prepare($tempID);
+$statement1->execute();
+$getId = $statement1->fetch(PDO::FETCH_ASSOC);
+$newId = $getId['id'];
+$newId = (int)$newId +1;
+
 $imgPath = __DIR__ . '/../../assets/Images/profile_img/';
-saveCheckImg($id,'profile',$img,'/',$imgPath);
+saveCheckImg($newId,'profile',$img,'/',$imgPath);
     /*create account */
 $insert = 'INSERT INTO users (email, password, profile_bio, profile_image, profile_name) VALUES
  (:email,:password,:profile_bio,:profile_image,:profile_name)';
@@ -34,7 +42,7 @@ $statement = $pdo->prepare($insert);
         ':profile_name'=>$name,
         ]
     );  
-$_SESSION['Account'] = "Welcome ". $name . "Sign in to see your Account";
+ $_SESSION['Account'] = "Welcome ". $name . "Sign in to see your Account";
 unsetSession('imgPath');  
 redirect('/'); 
 } 

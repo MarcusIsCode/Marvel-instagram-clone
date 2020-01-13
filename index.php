@@ -13,21 +13,13 @@ require __DIR__ . '/views/header.php';
         require __DIR__ . '/views/sign in/login.php';
         unsetSession('error');
     } else {
-        $files1 = scandir(__DIR__. '/assets/Images/profile_img');
-        print_r($files1);
-        foreach($files1 as $file){
-            if(substr($file,0,1) === $id){
-                
-                   echo $file;
-               
-            };
-            
-            
-            echo $h ."<br>";
-        }
-        
+
+  
+        echo '<main>';
         require __DIR__ . '/views/singedIn/loggedIn.php';
+        echo '</main>'; 
     }
-    
+    ?>
+    <?php
     require __DIR__ . '/views/footer.php' 
     ?>

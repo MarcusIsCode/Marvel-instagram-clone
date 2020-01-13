@@ -11,21 +11,25 @@ $imgPath = __DIR__. '/../../assets/Images/post_img/';
 SaveCheckImg ($id,'post',$img,'/',$imgPath);
 
 
-$newPost = 'INSERT INTO posts(user_id,post_img, text) VALUES
- (:user_id,:post_img,:text)';
+$newPost = 'INSERT INTO posts(user_id,post_img, text,date) VALUES
+ (:user_id,:post_img,:text,:date)';
 $statement  = $pdo -> prepare($newPost);
 if (!$statement) {
     die(var_dump($pdo->errorInfo()));
 }
-
+    $date = date('Y-m-d G:i');
+    
 
  $statement->execute([
     ':user_id' => $id,
     ':post_img' => $_SESSION['imgPath'],
-    ':text' => $post
+    ':text' => $post,
+    ':date'=> $date
     ]);
-    
+
+
+
 unsetSession('imgPath');
-redirect(__DIR__.'/../../Get/getData.php');
+redirect('../Get/getData.php');
 }
 ?>

@@ -48,6 +48,9 @@ body {
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4),
     inset 0 0 10px rgba(255, 255, 255, 0.8);
 }
+main{
+  margin-bottom:10vh;
+}
 textarea {
   resize: none;
   width: 90%;
@@ -129,4 +132,7 @@ nav .btn img {
 }
 .break-text{
   word-wrap: break-word;
+}
+.post{
+  max-width: 400px;
 }
