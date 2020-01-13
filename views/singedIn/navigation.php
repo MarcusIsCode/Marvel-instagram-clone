@@ -5,11 +5,10 @@
 }
  */
 
-$navButtons = ['profile', 'post'];
+$navButtons = ['profile', 'post','edit'];
 nav($navButtons, 'profile', __DIR__ . '/profile.php');
-nav($navButtons, 'post', __DIR__ . '/createPost.php')
-
-
+nav($navButtons, 'post', __DIR__ . '/createPost.php');
+nav($navButtons,'edit', __DIR__ .'/editPostV.php');
 ?>
 <nav class="fixed-bottom nav bg-dark">
         <form action="/" method="post">

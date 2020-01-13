@@ -1,5 +1,9 @@
 <?php
 //unset all given sessions
+
+/**
+ * @param mixed $name
+ */
 if (!function_exists('unsetSession')) {
     
     function unsetSession(){

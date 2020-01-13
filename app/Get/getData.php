@@ -31,7 +31,6 @@ for ($v=0; $v < count($getPosts) ; $v++) {
      //print_r($getComment);
     
      for ($x=0; $x < count($getComment); $x++) {
-        
          $getPosts[$v]['comments']['name'][] = $getComment[$x]['comment_name'];
         $getPosts[$v]['comments']['comment'][] = $getComment[$x]['comment'];
          

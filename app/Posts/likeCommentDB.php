@@ -41,7 +41,7 @@ if(isset($_POST['like'])){
 
 if(isset($_POST['commentSub'])){
   
-    $text = filter_var($_POST['comment'], FILTER_SANITIZE_STRING); //check if empty
+    $text = filter_var($_POST['comment'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES); //check if empty
     if(empty($text)){
         redirect('/');
     }else{

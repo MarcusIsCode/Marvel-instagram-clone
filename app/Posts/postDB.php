@@ -3,7 +3,7 @@ require __DIR__.'/../autoload.php';
 
 if(isset($_FILES['img'], $_POST['postText'] )){
     $img = $_FILES['img'];
-    $post = filter_var($_POST['postText'], FILTER_SANITIZE_STRING) ;
+    $post = filter_var($_POST['postText'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES) ;
 
 
 $imgPath = __DIR__. '/../../assets/Images/post_img/';
