@@ -1,0 +1,90 @@
+.signIn{
+    height:100vh;
+   display:flex;
+   flex-direction: column;
+   justify-content: center;
+}
+.signIn .btn{
+    max-width: 60%;
+    margin:0 auto;
+    font-size: 15px;
+}
+.signInInputBox{
+    height:50%;
+    align-self: center;
+}
+.signIn h1{
+    font-family: 'Waiting for the Sunrise', cursive;
+    font-size: 5em;
+    padding-bottom: 20px;
+    margin-top: -50px;
+}
+
+.signIn form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5px;
+    max-width:400px ;
+}
+/*create account*/
+.newAcc{
+    display: flex;
+    flex-direction: column;
+}
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.upload-btn-wrapper .btn {
+  border: 1px solid white;
+  color: white;
+  padding: 8px 19px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.upload-btn-wrapper input[type="file"] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+.upload-btn-wrapper input[type="file"]:hover .btn {
+  background: red;
+}
+.upload {
+  margin: 0;
+  position: relative;
+}
+.backBtn img{
+    width: 18px;
+    padding-left:2px;
+    padding-top:3px;
+    transform: rotate(180deg);
+}
+.backBtn button{
+    border:none;
+    color:white;
+}
+.imgUpload img{
+    width: 250px;
+}
+.newAcc h1{
+    font-family: 'Waiting for the Sunrise', cursive;
+    font-size: 59px;
+}
+.addAccount{
+    text-align: center;
+    display: flex;
+    flex-direction:column;   
+}
+
+.accInput{
+    width: 340px;
+    align-self: center;
+}

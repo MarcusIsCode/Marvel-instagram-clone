@@ -1,14 +1,14 @@
-<div class="p-0  bg-dark  d-flex container text-white border-bottom border-white">
+<div class="p-0 w-50 bg-dark  d-flex text-white rounded">
     <div class="w-50 bg-dark p-1 border-right rounded">
         <img class=" w-100 rounded" src="<?php echo $_SESSION['user']['profile_image'] ?>">
     </div>
     <div class="pl-1">
         <p class="m-0 mt-1 border-bottom"> Name: <?php echo $_SESSION['user']['profile_name'] ?></p>
         <p class="m-0 mt-1 border-bottom">Email: <?php echo $_SESSION['user']['email'] ?></p>
-        <p class="m-0 mt-1">Bio:<?php echo $_SESSION['user']['profile_bio'] ?></p>
+        <p class="m-0 mt-1"><?php echo $_SESSION['user']['profile_bio'] ?></p>
     </div>
 </div>
-<div>
+<div class='d-flex justify-content-center'>
     <?php require __DIR__ . '/out.php' ?>
 </div>
 
