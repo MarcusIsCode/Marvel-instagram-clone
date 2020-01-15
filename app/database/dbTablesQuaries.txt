@@ -1,0 +1,35 @@
+ CREATE TABLE users (
+	id integer PRIMARY KEY AUTOINCREMENT,
+	email text,
+	password text,
+	profile_bio varchar,
+	profile_image text,
+	profile_name varchar
+);
+
+CREATE TABLE posts (
+	post_id integer PRIMARY KEY,
+	user_id integer,
+	post_img text,
+	text varchar,
+	date text
+);
+
+CREATE TABLE like_posts (
+	user_id integer,
+	post_id integer,
+	likes integer
+);
+
+CREATE TABLE user_followers (
+	id integer PRIMARY KEY AUTOINCREMENT,
+	id_users integer,
+	follow_user_id integer
+);
+
+CREATE TABLE comment_posts (
+	post_id integer,
+	user_id integer,
+	comment varchar,
+	comment_name varchar
+);
