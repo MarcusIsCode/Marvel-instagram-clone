@@ -1,3 +1,4 @@
+
 //function for creating doom elements
 const elFactory = (type, attributes, ...children) => {
     const el = document.createElement(type)
@@ -97,7 +98,7 @@ const creatPost = (name, post_img, text, user_id, post_id, date, likes) => {
         )
     )
 
-    document.querySelector('main').appendChild(post)
+    return document.querySelector('main').appendChild(post)
 }
 
 
@@ -108,13 +109,20 @@ fetch('app/Get/getData.json')
     return response.json();
 })
 .then((myJson) => {
-    console.log(myJson)
-    for (let i = 0; i < myJson.length; i++) {
-        
-        creatPost(myJson[i].profile_name, myJson[i].post_img,myJson[i].text, myJson[i].user_id, myJson[i].post_id,  myJson[i].date, myJson[i].like);
-        
-    }
-    write(myJson);
+    if (document.querySelector("main") !== null){
 
-  
-    });
+ 
+      for (let i = 0; i < myJson.length; i++) {
+        creatPost(
+          myJson[i].profile_name,
+          myJson[i].post_img,
+          myJson[i].text,
+          myJson[i].user_id,
+          myJson[i].post_id,
+          myJson[i].date,
+          myJson[i].like
+        );
+      }
+    write(myJson);
+   }
+  });

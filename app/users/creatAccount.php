@@ -42,7 +42,7 @@ $statement = $pdo->prepare($insert);
         ':profile_name'=>$name,
         ]
     );  
- $_SESSION['Account'] = "Welcome ". $name . "Sign in to see your Account";
+ $_SESSION['Account'] = " Welcome ". $name . "Sign in to see your Account";
 unsetSession('imgPath');  
 redirect('/'); 
 } 
