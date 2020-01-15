@@ -1,0 +1,33 @@
+.profileBox{
+    min-height:89vh ;
+    padding-bottom: 10px;
+    font-family: 'Amatic SC', cursive;
+    font-size: 22px;
+}
+.profileBox h1{
+    font-family: 'Waiting for the Sunrise', cursive;
+    font-size: 50px;
+}
+.profileBox img{
+    width: 300px;   
+}
+
+.textBoxBio{
+    width: 100%;
+    position: relative;
+    top:10px;
+    
+}
+.profileBox .btn{
+    font-size: 25px;
+    font-weight: bolder;
+}
+.confirm,h5{
+    font-size: 24px;
+    font-weight: bolder;
+}
+.updateAccount{
+    font-family: 'Amatic SC', cursive;
+    font-size: 24px;
+    font-weight: bolder;
+}

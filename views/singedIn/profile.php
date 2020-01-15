@@ -1,18 +1,19 @@
-<div class="p-0 w-50 bg-dark  d-flex text-white rounded">
-    <div class="w-50 bg-dark p-1 border-right rounded">
-        <img class=" w-100 rounded" src="<?php echo $_SESSION['user']['profile_image'] ?>">
+<div class="profileBox  m-0 w-100 bg-dark  text-center text-white rounded">
+    <h1 class="m-0 pt-2 text-primary"><?php echo $_SESSION['user']['profile_name'] ?></h1>
+    <div class="w-100 bg-dark p-1 border-right rounded">
+        <img class=" rounded" src="<?php echo $_SESSION['user']['profile_image'] ?>">
     </div>
     <div class="pl-1">
-        <p class="m-0 mt-1 border-bottom"> Name: <?php echo $_SESSION['user']['profile_name'] ?></p>
-        <p class="m-0 mt-1 border-bottom">Email: <?php echo $_SESSION['user']['email'] ?></p>
-        <p class="m-0 mt-1"><?php echo $_SESSION['user']['profile_bio'] ?></p>
+        <p class="m-0 "> <?php echo $_SESSION['user']['email'] ?></p>
+        <div class="textBoxBio">
+            <p class="bio m-0"><?php echo $_SESSION['user']['profile_bio'] ?></p>
+        </div>
     </div>
-</div>
-<div class='d-flex justify-content-center'>
     <?php require __DIR__ . '/out.php' ?>
 </div>
 
-<div class="form-group m-5 pb-5 text-white">
+
+<div class="form-group m-5 pb-5 text-white border-bottom">
     <form class="addAccount" action="app/users/uppdateAccount.php" method="post" enctype="multipart/form-data">
         <h2>Change Account settings</h2>
         <hr class="style1 bg-white">
@@ -25,7 +26,7 @@
             </div>
         </div>
 
-        <div class="form-group border-top border-white">
+        <div class="form-group border-top mt-5 border-white">
             <label for="name">Name</label>
             <input class="form-control" type="text" name="name" id="name" placeholder="New name">
 
@@ -52,9 +53,9 @@
             <h5 class="pb-3">Write your password to confirm changes</h5>
             <input class="form-control" type="password" name="passwordConfirm" id="passwordConfirm" placeholder="password" autocomplete="off">
             <label for="passwordConfirm"></label>
-            <div class="mt-1 ml-5 w-75 d-flex justify-content-between">
+            <div class="mt-1 ml-5 w-75 d-flex justify-content-right">
                 <button type="submit" class="btn-outline-light bg-transparent rounded p-2 ">confirm</button>
-                <button type='button' class='btn-outline-light bg-transparent rounded p-2 closeBtn'>cancel</button>
+                <button type='button' class='btn-outline-light bg-transparent rounded ml-3 p-2 closeBtn'>cancel</button>
             </div>
         </div>
     </form>

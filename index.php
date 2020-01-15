@@ -11,7 +11,6 @@ require __DIR__ . '/views/header.php';
         if (isset($_POST['back'])) {$_SESSION['account'] = false ;}
         
         if ($_SESSION['account'] === true){
-            
             $_COOKIE['messageAc'] = $_SESSION['error']['account'];
             require __DIR__ . '/views/sign in/addAc.php';
         }else{
