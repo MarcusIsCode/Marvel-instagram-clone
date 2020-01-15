@@ -6,7 +6,6 @@ unsetSession('error'); ?>
     <form action="/" method="post">
         <button type="submit" name="home" class="close text-white text-lg">X</button>
     </form>
-    <!--change here-->
 
     <form class="d-flex align-items-center flex-column" action="app/Posts/editPost.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="postId" value="<?php echo $_POST['postId'] ?>">

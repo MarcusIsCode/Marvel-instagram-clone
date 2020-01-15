@@ -43,7 +43,7 @@ function saveCheckImg(int $id, string $postOrProfileImg ,array $img, string $red
     {
     $error =[];
         if ($img['size'] > 2000000) {
-              $error[] = $img['name'].'exceeded filesize the filesize limit';
+              $error[] = $img['name'].' exceeded filesize the filesize limit';
           
         }
 
@@ -127,7 +127,7 @@ function nav(array $navBtn, string $name, string $path){
 }
 
 
-if($_SESSION["user"]){
+if(isset($_SESSION["user"])){
 $id = $_SESSION["user"]['id'];
 $id = (int) $id;
 }else{
