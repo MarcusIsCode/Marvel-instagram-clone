@@ -32,6 +32,11 @@ if (!isset($_SESSION['user'])) {
 
     require __DIR__ . '/views/singedIn/loggedIn.php';
 
+    if (isset($_GET['profile'])) {
+        unset($_SESSION['showFeed']);
+        require __DIR__ . '/views/singedIn/profile.php';
+    }
+
     if (isset($_SESSION['showFeed'])) {
         require __DIR__ . '/views/singedIn/home.php';
     }

@@ -1,4 +1,3 @@
-
 body {
   min-height: 100vh;
   max-width: 100vw;
@@ -6,8 +5,8 @@ body {
   background-image: linear-gradient(315deg, #4c4177 0%, #2a5470 74%);
 }
 
-main{
-  margin-bottom:10vh;
+main {
+  margin-bottom: 10vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,6 +16,9 @@ textarea {
   width: 90%;
 }
 
+*:focus {
+  outline: none;
+}
 
 nav .btn {
   border-width: 0px;
@@ -61,55 +63,56 @@ nav .btn img {
 .hide {
   display: none;
 }
-.break-text{
+.break-text {
   word-wrap: break-word;
 }
-.posts{
-  width:90%;
+.posts {
+  width: 90%;
   max-width: 400px;
-  font-family: 'Amatic SC', cursive;
- }
-.posts h3{
-   font-family: 'Waiting for the Sunrise', cursive;
-   font-size: 34px;
+  font-family: "Amatic SC", cursive;
 }
-.writeComment textarea{
-  color:black;
+.posts h3 {
+  font-family: "Waiting for the Sunrise", cursive;
+  font-size: 34px;
+}
+.writeComment textarea {
+  color: black;
   font-weight: bolder;
   font-size: 22px;
 }
-.writeComment img{
-  width:40px
+.writeComment img {
+  width: 40px;
 }
-.likePost{
+.likePost {
   align-self: flex-end;
 }
-.likePost img{
-  width:37px;
-  margin-left:5px;
+.likePost img {
+  width: 37px;
+  margin-left: 5px;
 }
- .theLikes{
+.theLikes {
   font-size: 30px;
-  margin-top:30px;
+  margin-top: 30px;
 }
-.comments, .posts p{
-  font-size:22px
+.comments,
+.posts p {
+  font-size: 22px;
 }
 
-.editPostV{
+.editPostV {
   position: fixed;
   z-index: 5;
   min-width: 350px;
 }
 
-.createPost{
+.createPost {
   max-width: 360px;
   min-width: 360px;
-  font-family: 'Amatic SC', cursive;
+  font-family: "Amatic SC", cursive;
   font-size: 24px;
   font-weight: bolder;
   align-self: center;
 }
-.close{
+.close {
   font-family: Arial, Helvetica, sans-serif;
 }

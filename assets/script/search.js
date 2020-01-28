@@ -1,25 +1,18 @@
 const searchInput = document.querySelector("#search");
-const searchForm = document.querySelector(".search__form");
-const foundUsers = document.querySelector(".found__users");
+const searchForm = document.querySelector(".searchForm");
+const foundUsers = document.querySelector(".foundUsers");
 
-const appendUsers = function(user, isAvatar) {
+const appendUsers = function(user) {
   let name = user.profile_name;
-
-  let avatar;
-
-  if (isAvatar) {
-    avatar = `uploads/avatars/${user.profile_image}`;
-  } else {
-    avatar = "assets/images/avatar.png";
-  }
+  let avatar = user.profile_image;
 
   const div = document.createElement("div");
 
   template = `
-        <div class="user">
-            <a href="profile.php?profile=${name}">
-                <img src="${avatar}" alt="${name}'s profile picture">
-                <div class="user__name">
+        <div class="user w-100 h-20 p-3 rounded bg-dark shadow-lg mb-3">
+            <a href="/?profile=${name}" class="d-flex">
+                <img class="rounded" src="${avatar}" alt="${name}'s profile picture">
+                <div class="userName text-white d-flex align-items-center ml-3">
                     <p>${name}</p>
                 </div>
             </a>
@@ -27,6 +20,10 @@ const appendUsers = function(user, isAvatar) {
     `;
 
   div.innerHTML = template;
+
+  div.classList.add("row");
+  div.classList.add("w-100");
+  div.classList.add("m-0");
 
   foundUsers.appendChild(div);
 };
@@ -49,13 +46,7 @@ if (typeof searchInput != "undefined" && searchInput != null) {
 
             if (users !== "No users") {
               users.forEach(user => {
-                if (user.profile_image === null) {
-                  let isAvatar = false;
-                  appendUsers(user, isAvatar);
-                } else {
-                  let isAvatar = true;
-                  appendUsers(user, isAvatar);
-                }
+                appendUsers(user);
               });
             }
           });
@@ -64,7 +55,7 @@ if (typeof searchInput != "undefined" && searchInput != null) {
   });
 }
 
-const searchButton = document.querySelector(".search__form button");
+const searchButton = document.querySelector(".searchForm button");
 
 if (typeof searchButton != "undefined" && searchButton != null) {
   searchButton.addEventListener("click", event => {
@@ -82,13 +73,7 @@ if (typeof searchButton != "undefined" && searchButton != null) {
 
         if (users !== "No users") {
           users.forEach(user => {
-            if (user.profile_image === null) {
-              let isAvatar = false;
-              appendUsers(user, isAvatar);
-            } else {
-              let isAvatar = true;
-              appendUsers(user, isAvatar);
-            }
+            appendUsers(user);
           });
         } else {
           const div = document.createElement("div");
@@ -99,7 +84,7 @@ if (typeof searchButton != "undefined" && searchButton != null) {
 
           div.innerHTML = template;
 
-          div.classList.add("no__users");
+          div.classList.add("noUsers");
 
           foundUsers.appendChild(div);
         }

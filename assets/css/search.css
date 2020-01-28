@@ -1,0 +1,12 @@
+.searchForm button,
+.user {
+  font-family: "Amatic SC", cursive;
+  font-size: 22px;
+}
+
+.user img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position: center;
+}

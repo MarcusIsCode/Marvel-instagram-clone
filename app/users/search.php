@@ -13,7 +13,7 @@ if (isset($_POST['search'])) {
         $statement = $pdo->query("SELECT profile_name, profile_image
         FROM users WHERE profile_name LIKE ? LIMIT 15");
 
-        $statement->execute([$search, $search]);
+        $statement->execute([$search]);
 
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     } else {

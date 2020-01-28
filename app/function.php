@@ -104,6 +104,7 @@ if (!function_exists('redirect')) {
         exit;
     }
 }
+
 if (!function_exists('nav')) {
     // requires the chosen site to the page.
     //: example click on profile button, profile page appears
@@ -133,3 +134,15 @@ if (isset($_SESSION["user"])) {
 } else {
     $id = null;
 };
+
+if (!function_exists('getProfile')) {
+    function getProfile($pdo, $profileName)
+    {
+        $statement = $pdo->prepare('SELECT id, profile_name, profile_image, profile_bio
+        FROM users WHERE profile_name = ?');
+
+        $statement->execute([$profileName]);
+
+        return $statement->fetch(PDO::FETCH_ASSOC);
+    }
+}
