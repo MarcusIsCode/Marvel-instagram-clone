@@ -1,3 +1,9 @@
+<?php
+
+unset($_SESSION['showFeed']);
+
+?>
+
 <div class="profileBox  m-0 w-100 bg-dark  text-center text-white rounded">
     <h1 class="m-0 pt-2 text-primary"><?php echo $_SESSION['user']['profile_name'] ?></h1>
     <div class="w-100 bg-dark p-1 border-right rounded">
