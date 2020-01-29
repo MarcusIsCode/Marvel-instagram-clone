@@ -34,11 +34,11 @@ if (isset($_GET['profile'])) {
         </div>
 
         <div class="follow d-flex w-100 justify-content-center mt-3">
-            <div class="followItem following mr-5">
+            <div class="following mr-5">
                 <h3>Following</h3>
-                <p class="followingNumber"><?php echo getAmountFollowings($pdo, $profileId); ?></p>
+                <p><?php echo getAmountFollowings($pdo, $profileId); ?></p>
             </div>
-            <div class="followItem followers">
+            <div class="followers">
                 <h3>Followers</h3>
                 <p class="followersNumber"><?php echo getAmountFollowers($pdo, $profileId); ?></p>
             </div>

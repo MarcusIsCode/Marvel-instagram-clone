@@ -71,8 +71,6 @@ return a imgPath session that is used to for the db.
 }
 
 if (!function_exists('checkMail')) {
-
-
     function checkMail($pdo, string $email, string $type)
     {
         $emailCheck = 'SELECT email, profile_name FROM users where email = :email';
@@ -105,29 +103,6 @@ if (!function_exists('redirect')) {
     }
 }
 
-if (!function_exists('nav')) {
-    // requires the chosen site to the page.
-    //: example click on profile button, profile page appears
-
-    function nav(array $navBtn, string $name, string $path)
-    {
-        foreach ($navBtn as $btn) {
-            if ($btn === $name) {
-                continue;
-            } else {
-                unsetSession($btn);
-            }
-        }
-        if (isset($_POST[$name])) {
-            $_SESSION[$name] = true;
-        }
-        if (isset($_SESSION[$name])) {
-            return require $path;
-        }
-    }
-}
-
-
 if (isset($_SESSION["user"])) {
     $id = $_SESSION["user"]['id'];
     $id = (int) $id;
@@ -136,7 +111,14 @@ if (isset($_SESSION["user"])) {
 };
 
 if (!function_exists('getProfile')) {
-    function getProfile($pdo, $profileName)
+    /**
+     * Fetch the profile information from database.
+     *
+     * @param PDO $pdo
+     * @param string $profileName
+     * @return void
+     */
+    function getProfile(PDO $pdo, string $profileName)
     {
         $statement = $pdo->prepare('SELECT id, profile_name, profile_image, profile_bio
         FROM users WHERE profile_name = ?');
