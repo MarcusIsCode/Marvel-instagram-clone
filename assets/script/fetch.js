@@ -67,17 +67,19 @@ const write = myJson => {
   for (let i = 0; i < myJson.length; i++) {
     if (typeof myJson[i].comments === "undefined") {
       i++;
-    }
-    for (let x = 0; x < myJson[i].comments.name.length; x++) {
-      document
-        .querySelectorAll(".commentsBox")
-        [i].appendChild(
-          commentBox(
-            myJson[i].comments.name[x],
-            myJson[i].comments.comment[x],
-            myJson[i].post_id
-          )
-        );
+    } else {
+      for (let x = 0; x < myJson[i].comments.name.length; x++) {
+        document
+          .querySelectorAll(".commentsBox")
+          [i].appendChild(
+            commentBox(
+              myJson[i].comments.name[x],
+              myJson[i].comments.comment[x],
+              myJson[i].post_id
+            )
+          );
+      }
+      i++;
     }
   }
 };
@@ -229,18 +231,49 @@ fetch("app/Get/getData.json")
     return response.json();
   })
   .then(myJson => {
-    if (document.querySelector(".feed") !== null) {
-      for (let i = 0; i < myJson.length; i++) {
-        creatPost(
-          myJson[i].profile_name,
-          myJson[i].post_img,
-          myJson[i].text,
-          myJson[i].user_id,
-          myJson[i].post_id,
-          myJson[i].date,
-          myJson[i].like
+    const feed = document.querySelector(".feed");
+
+    if (feed !== null) {
+      if (myJson != null) {
+        for (let i = 0; i < myJson.length; i++) {
+          creatPost(
+            myJson[i].profile_name,
+            myJson[i].post_img,
+            myJson[i].text,
+            myJson[i].user_id,
+            myJson[i].post_id,
+            myJson[i].date,
+            myJson[i].like
+          );
+
+          if (myJson[i].comments) {
+            write(myJson);
+          }
+        }
+      } else {
+        const noPosts = document.createElement("div");
+
+        const noPostsTemplate = `<p class="m-0">You have no posts, and you are not following anyone.</p>
+      <p class="m-0">Search for new users to follow!</p>`;
+
+        noPosts.innerHTML = noPostsTemplate;
+
+        noPosts.classList.add(
+          "bg-dark",
+          "mt-5",
+          "pt-2",
+          "pb-2",
+          "text-white",
+          "rounded",
+          "shadow-lg",
+          "w-75",
+          "d-flex",
+          "flex-column",
+          "justify-content-center",
+          "align-items-center"
         );
+
+        feed.appendChild(noPosts);
       }
-      write(myJson);
     }
   });
