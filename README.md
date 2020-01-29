@@ -32,6 +32,18 @@ You're going to create a Instagram clone. Prepare a short presentation of your p
 - Tip: If you haven't already, update your php.ini configuration to display errors.
 - The project must be tested on at least two of your classmates computers.
   Note: Add the testers name to the README.md file.
+  
+## Picture That
+An assigment in this PHP course was to create a pull request with two additional features on a another students project.
+
+<a href="https://github.com/MarcusIsCode/Picture-this/pull/2">See the pull request here</a>
+
+__Extra features__
+* As a user I should be able to follow and unfollow other users.
+* As a use I should be able to search and see a list of users by query.
+
+__added by <a href="https://github.com/milliebase">Betsy Alva Soplin</a>__
+  
 ## Instalation
 - Download/clone the repository.
 - Start loacal server in root folder of the repository.
