@@ -29,16 +29,16 @@ if (!function_exists('unsetPost')) {
 
 if (!function_exists('saveCheckImg')) {
     /*
-$postOrProfileImg is where the db will get the db
+    $postOrProfileImg is where the db will get the db
 
-$img is the file array that is checked with filesize and type.
+    $img is the file array that is checked with filesize and type.
 
-$redirectPath is to redirect back when there is an error.
+    $redirectPath is to redirect back when there is an error.
 
-$folderPath is where the image will be saved
+    $folderPath is where the image will be saved
 
-return a imgPath session that is used to for the db.
-*/
+    return a imgPath session that is used to for the db.
+    */
     function saveCheckImg(int $id, string $postOrProfileImg, array $img, string $redirectPath, string $folderPath)
     {
         $error = [];
@@ -110,6 +110,8 @@ if (isset($_SESSION["user"])) {
     $id = null;
 };
 
+
+
 if (!function_exists('getProfile')) {
     /**
      * Fetch the profile information from database.
@@ -129,7 +131,6 @@ if (!function_exists('getProfile')) {
     }
 }
 
-/*************************FOLLOWING/USERS********************/
 if (!function_exists('isFollowing')) {
     /**
      * See if user is following a user.
@@ -200,7 +201,7 @@ if (!function_exists('getAmountFollowers')) {
  * @param array $b
  * @return void
  */
-function sortByDate(array $a, array $b)
+function sortById(array $a, array $b)
 {
     return ($a['post_id'] < $b['post_id']);
 }

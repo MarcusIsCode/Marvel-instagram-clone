@@ -21,9 +21,7 @@ const appendUsers = function(user) {
 
   div.innerHTML = template;
 
-  div.classList.add("row");
-  div.classList.add("w-100");
-  div.classList.add("m-0");
+  div.classList.add("row", "m-0", "w-100");
 
   foundUsers.appendChild(div);
 };

@@ -234,7 +234,7 @@ fetch("app/Get/getData.json")
     const feed = document.querySelector(".feed");
 
     if (feed !== null) {
-      if (myJson != null) {
+      if (myJson != null && myJson.length !== 0) {
         for (let i = 0; i < myJson.length; i++) {
           creatPost(
             myJson[i].profile_name,

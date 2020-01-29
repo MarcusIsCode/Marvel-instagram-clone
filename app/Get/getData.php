@@ -1,20 +1,20 @@
 <?php
 require __DIR__ . '/../autoload.php';
 
-$followings = 'SELECT DISTINCT follow_id
+$follows = 'SELECT DISTINCT follow_id
 FROM user_follows
 WHERE user_id=:user_id';
 
-$statement = $pdo->prepare($followings);
+$statement = $pdo->prepare($follows);
 
 $statement->execute([
     'user_id' => $_SESSION['user']['id']
 ]);
 
-$followings = $statement->fetchAll(PDO::FETCH_COLUMN);
+$follows = $statement->fetchAll(PDO::FETCH_COLUMN);
 
 //Insert users own id.
-$followings[] = $_SESSION['user']['id'];
+$follows[] = $_SESSION['user']['id'];
 
 //name,post_img,text,user_id, post_id,date
 $posts = 'SELECT users.profile_name, posts.*
@@ -25,72 +25,69 @@ $posts = 'SELECT users.profile_name, posts.*
 
 $statement = $pdo->prepare($posts);
 
-foreach ($followings as $following) {
+foreach ($follows as $follows) {
     $statement->execute([
-        ':user_id' => $following
+        ':user_id' => $follows
     ]);
 
     $allPosts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-    foreach ($allPosts as $post) {
-        $getPosts[] = $post;
+    if (!empty($allPosts)) {
+        foreach ($allPosts as $post) {
+            $getPosts[] = $post;
+        }
+    } else {
+        $getPosts = [];
     }
 }
 
 if (!empty($getPosts)) {
-    usort($getPosts, 'sortByDate');
-}
+    usort($getPosts, 'sortById');
 
-//comment
-$comment =  'SELECT post_id,comment,comment_name FROM comment_posts WHERE post_id=:post_id';
-$statementComment = $pdo->prepare($comment);
+    //comment
+    $comment =  'SELECT post_id,comment,comment_name FROM comment_posts WHERE post_id=:post_id';
 
-for ($v = 0; $v < count($getPosts); $v++) {
+    $statementComment = $pdo->prepare($comment);
 
-    foreach ($getPosts as $post) {
-        $statementComment->execute([
-            ':post_id' => $post['post_id']
-        ]);
+    for ($v = 0; $v < count($getPosts); $v++) {
 
-        $getComment = $statementComment->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($getPosts as $post) {
+            $statementComment->execute([
+                ':post_id' => $post['post_id']
+            ]);
 
-        // var_dump($getComment);
+            $getComment = $statementComment->fetchAll(PDO::FETCH_ASSOC);
 
-        for ($x = 0; $x < count($getComment); $x++) {
-            if ($getComment[$x]['post_id'] === $getPosts[$v]['post_id']) {
-                $getPosts[$v]['comments']['name'][] = $getComment[$x]['comment_name'];
-                $getPosts[$v]['comments']['comment'][] = $getComment[$x]['comment'];
-            }
-            // $getPosts[$v]['comments']['name'][] = $getComment[$x]['comment_name'];
-            // $getPosts[$v]['comments']['comment'][] = $getComment[$x]['comment'];
-        };
-
-        // if (!empty($getComment[]) && $getComment['post_id'] === $getPosts[$v]['post_id']) {
-        //     var_dump($getComment);
-        //     // $getPosts[$i]['comments']['name'][] = $getComment[$]['comment_name'];
-        // }
-    }
-}
-
-//likes
-$likes = 'SELECT post_id, count(likes) FROM like_posts WHERE post_id = :post_id';
-$statementLike = $pdo->prepare($likes);
-// $l = count($getPosts);
-for ($i = 0; $i < count($getPosts); $i++) {
-
-    foreach ($getPosts as $post) {
-        $statementLike->execute([
-            ':post_id' => $post['post_id']
-        ]);
-
-        $getLike  = $statementLike->fetch(PDO::FETCH_ASSOC);
-
-        if ($getLike['post_id'] === $getPosts[$i]['post_id']) {
-            $getPosts[$i]['like'] = $getLike['count(likes)'];
+            for ($x = 0; $x < count($getComment); $x++) {
+                if ($getComment[$x]['post_id'] === $getPosts[$v]['post_id']) {
+                    $getPosts[$v]['comments']['name'][] = $getComment[$x]['comment_name'];
+                    $getPosts[$v]['comments']['comment'][] = $getComment[$x]['comment'];
+                }
+            };
         }
+    }
 
-        if (!$getLike || $getLike['post_id'] === null) {
-            $getPosts[$i]['like'] = '0';
+    //likes
+    $likes = 'SELECT post_id, count(likes) FROM like_posts WHERE post_id = :post_id';
+
+    $statementLike = $pdo->prepare($likes);
+
+    for ($i = 0; $i < count($getPosts); $i++) {
+
+        foreach ($getPosts as $post) {
+            $statementLike->execute([
+                ':post_id' => $post['post_id']
+            ]);
+
+            $getLike  = $statementLike->fetch(PDO::FETCH_ASSOC);
+
+            if ($getLike['post_id'] === $getPosts[$i]['post_id']) {
+                $getPosts[$i]['like'] = $getLike['count(likes)'];
+            }
+
+            if (!$getLike || $getLike['post_id'] === null) {
+                $getPosts[$i]['like'] = '0';
+            }
         }
     }
 }
