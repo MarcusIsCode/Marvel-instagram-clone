@@ -2,6 +2,8 @@
 
 unset($_SESSION['showFeed']);
 
+
+
 if (isset($_GET['profile'])) {
     $profileName = trim(filter_var($_GET['profile'], FILTER_SANITIZE_STRING));
 
@@ -10,6 +12,7 @@ if (isset($_GET['profile'])) {
     if ($profile) {
         $profileImage = $profile['profile_image'];
         $profileBio = $profile['profile_bio'];
+        $profileId = $profile['id'];
     }
 } else {
     $profileName = $_SESSION['user']['profile_name'];
@@ -20,24 +23,24 @@ if (isset($_GET['profile'])) {
 ?>
 
 <?php if (isset($_GET['profile']) && !$profile) : ?>
-    <div class="profileBoxEmpty m-0 w-100 bg-dark  text-center text-white rounded">
+    <div class="profileBoxEmpty m-0 w-100 bg-dark text-center text-white rounded">
         <p>Sorry, the user does not exist.</p>
     </div>
 <?php else : ?>
 
-    <div class="profileBox  m-0 w-100 bg-dark  text-center text-white rounded">
+    <div class="profileBox  m-0 w-100 bg-dark text-center text-white rounded">
         <h1 class="m-0 pt-2 text-primary"><?php echo $profileName; ?></h1>
         <div class="w-100 bg-dark p-1 border-right rounded">
             <img class=" rounded" src="<?php echo $profileImage; ?>">
         </div>
-        <div class="pl-1">
-            <?php if (!isset($_GET['profile']) || $profileName === $_SESSION['user']['profile_name']) : ?>
-                <p class="m-0 "> <?php echo $_SESSION['user']['email'] ?></p>
-            <?php endif; ?>
-            <div class="textBoxBio">
-                <p class="bio m-0"><?php echo $profileBio; ?></p>
-            </div>
+        <div class="pl-1"></div>
+        <?php if (!isset($_GET['profile']) || $profileName === $_SESSION['user']['profile_name']) : ?>
+            <p class="m-0 "> <?php echo $_SESSION['user']['email'] ?></p>
+        <?php endif; ?>
+        <div class="textBoxBio">
+            <p class="bio m-0"><?php echo $profileBio; ?></p>
         </div>
+
         <?php if (!isset($_GET['profile']) || $profileName === $_SESSION['user']['profile_name']) : ?>
             <?php require __DIR__ . '/out.php' ?>
         <?php endif; ?>
