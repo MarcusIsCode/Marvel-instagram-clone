@@ -192,3 +192,15 @@ if (!function_exists('getAmountFollowers')) {
         return $followers;
     }
 }
+
+/**
+ * Callback function for sorting items in descending order.
+ *
+ * @param array $a
+ * @param array $b
+ * @return void
+ */
+function sortByDate(array $a, array $b)
+{
+    return ($a['post_id'] < $b['post_id']);
+}

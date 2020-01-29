@@ -116,3 +116,8 @@ nav .btn img {
 .close {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.feed p {
+  font-family: "Waiting for the Sunrise", cursive;
+  text-transform: uppercase;
+}
