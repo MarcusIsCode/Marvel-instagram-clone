@@ -146,3 +146,67 @@ if (!function_exists('getProfile')) {
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
 }
+
+/*************************FOLLOWING/USERS********************/
+if (!function_exists('isFollowing')) {
+    /**
+     * See if user is following a user.
+     *
+     * @param PDO $pdo
+     * @param integer $userId
+     * @param integer $followId
+     * @return void
+     */
+    function isFollowing(PDO $pdo, int $userId, int $followId)
+    {
+        $statement = $pdo->prepare('SELECT * FROM user_follows WHERE user_id = ? AND follow_id = ?');
+
+        $statement->execute([$userId, $followId]);
+
+        return $statement->fetch(PDO::FETCH_ASSOC);
+    }
+}
+
+if (!function_exists('getAmountFollowings')) {
+    /**
+     * Fetch user followings.
+     *
+     * @param PDO $pdo
+     * @param integer $userId
+     * @return void
+     */
+    function getAmountFollowings($pdo, int $userId)
+    {
+        $statement = $pdo->prepare('SELECT COUNT(user_id)
+        FROM user_follows
+        WHERE user_id=?');
+
+        $statement->execute([$userId]);
+
+        $following = $statement->fetch(PDO::FETCH_COLUMN);
+
+        return $following;
+    }
+}
+
+if (!function_exists('getAmountFollowers')) {
+    /**
+     * Fetch user followers.
+     *
+     * @param PDO $pdo
+     * @param integer $userId
+     * @return void
+     */
+    function getAmountFollowers($pdo, int $userId)
+    {
+        $statement = $pdo->prepare('SELECT COUNT(follow_id)
+        FROM user_follows
+        WHERE follow_id=?');
+
+        $statement->execute([$userId]);
+
+        $followers = $statement->fetch(PDO::FETCH_COLUMN);
+
+        return $followers;
+    }
+}

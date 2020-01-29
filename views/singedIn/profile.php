@@ -2,8 +2,6 @@
 
 unset($_SESSION['showFeed']);
 
-
-
 if (isset($_GET['profile'])) {
     $profileName = trim(filter_var($_GET['profile'], FILTER_SANITIZE_STRING));
 
@@ -18,6 +16,7 @@ if (isset($_GET['profile'])) {
     $profileName = $_SESSION['user']['profile_name'];
     $profileImage = $_SESSION['user']['profile_image'];
     $profileBio = $_SESSION['user']['profile_bio'];
+    $profileId = (int) $_SESSION['user']['id'];
 }
 
 ?>
@@ -30,19 +29,40 @@ if (isset($_GET['profile'])) {
 
     <div class="profileBox  m-0 w-100 bg-dark text-center text-white rounded">
         <h1 class="m-0 pt-2 text-primary"><?php echo $profileName; ?></h1>
-        <div class="w-100 bg-dark p-1 border-right rounded">
+        <div class="bg-dark p-1 rounded">
             <img class=" rounded" src="<?php echo $profileImage; ?>">
         </div>
-        <div class="pl-1"></div>
+
+        <div class="follow d-flex w-100 justify-content-center mt-3">
+            <div class="followItem following mr-5">
+                <h3>Following</h3>
+                <p class="followingNumber"><?php echo getAmountFollowings($pdo, $profileId); ?></p>
+            </div>
+            <div class="followItem followers">
+                <h3>Followers</h3>
+                <p class="followersNumber"><?php echo getAmountFollowers($pdo, $profileId); ?></p>
+            </div>
+        </div>
+
         <?php if (!isset($_GET['profile']) || $profileName === $_SESSION['user']['profile_name']) : ?>
-            <p class="m-0 "> <?php echo $_SESSION['user']['email'] ?></p>
+            <div class="pl-1">
+                <p class="m-0 "> <?php echo $_SESSION['user']['email'] ?></p>
+            </div>
         <?php endif; ?>
+
         <div class="textBoxBio">
             <p class="bio m-0"><?php echo $profileBio; ?></p>
         </div>
 
         <?php if (!isset($_GET['profile']) || $profileName === $_SESSION['user']['profile_name']) : ?>
             <?php require __DIR__ . '/out.php' ?>
+        <?php else : ?>
+            <form method="post" class="followForm mt-5">
+                <input type="hidden" name="profileId" value="<?php echo $profileId; ?>">
+                <button type="submit" class="followBtn btn border bg-dark text-white w-25">
+                    <?php echo (!isFollowing($pdo, $_SESSION['user']['id'], $profileId) ? 'Follow' : 'Unfollow'); ?>
+                </button>
+            </form>
         <?php endif; ?>
     </div>
 
