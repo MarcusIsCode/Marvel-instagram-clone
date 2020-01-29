@@ -67,7 +67,7 @@ if (isset($_GET['profile'])) {
     </div>
 
     <?php if (!isset($_GET['profile']) || $profileName === $_SESSION['user']['profile_name']) : ?>
-        <div class="form-group m-5 pb-5 text-white border-bottom">
+        <div class="form-group m-5 pb-5 text-white border-bottom d-flex flex-column align-items-center">
             <form class="addAccount" action="app/users/uppdateAccount.php" method="post" enctype="multipart/form-data">
                 <h2>Change Account settings</h2>
                 <hr class="style1 bg-white">
