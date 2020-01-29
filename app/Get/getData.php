@@ -32,16 +32,12 @@ foreach ($follows as $follows) {
 
     $allPosts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-    if (!empty($allPosts)) {
-        foreach ($allPosts as $post) {
-            $getPosts[] = $post;
-        }
-    } else {
-        $getPosts = [];
+    foreach ($allPosts as $post) {
+        $getPosts[] = $post;
     }
 }
 
-if (!empty($getPosts)) {
+if (isset($getPosts) && !empty($getPosts)) {
     usort($getPosts, 'sortById');
 
     //comment
@@ -90,6 +86,8 @@ if (!empty($getPosts)) {
             }
         }
     }
+} else {
+    $getPosts = [];
 }
 
 //all post data from db sent to json

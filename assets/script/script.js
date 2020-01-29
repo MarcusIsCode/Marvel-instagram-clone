@@ -31,3 +31,12 @@ if (updateAccount !== null) {
     confirmBox.classList.add("hide");
   });
 }
+
+//Added eventlistener to update feed everytime you press home-button.
+const homeButton = document.querySelector("#home");
+
+if (typeof homeButton != "undefined" && homeButton != null) {
+  homeButton.addEventListener("click", () => {
+    fetch("app/Get/getData.php");
+  });
+}

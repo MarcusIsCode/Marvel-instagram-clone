@@ -62,7 +62,7 @@ if (!isset($_SESSION['user'])) {
 <?php if (isset($_SESSION['user']['id'])) : ?>
     <nav class="fixed-bottom d-flex border-top mt-1 border-primary nav bg-dark">
         <form class="d-flex justify-content-around bd-highlight w-100" action="/" method="post">
-            <button class="btn bg-dark" type="submit" name="home"><img src="assets\Images\icons\home-sign.svg"></button>
+            <button class="btn bg-dark" type="submit" name="home" id="home"><img src="assets\Images\icons\home-sign.svg"></button>
             <button class="btn bg-dark" type="submit" name="search"><img src="assets\Images\icons\search.svg"></button>
             <button class="btn bg-dark" type="submit" name="post">
                 <div class="postBtn">
