@@ -1,12 +1,12 @@
 <?php
 require __DIR__ . '/../autoload.php';
-
+//header('Content-Type: application/json');
 //name,post_img,text,user_id, post_id,date
 
 $posts = 'SELECT users.profile_name,
                 posts.*
             FROM posts
-                    LEFT JOIN users ON  posts.user_id = users.id' ;
+                    LEFT JOIN users ON  posts.user_id = users.id ORDER BY post_id DESC '  ;
  
 $statement = $pdo -> prepare($posts);
 if (!$statement) {
@@ -20,7 +20,7 @@ $getPosts = $statement->fetchAll(PDO::FETCH_ASSOC);
 //comment
 $comment =  'SELECT post_id,comment,comment_name FROM comment_posts WHERE post_id=:post_id';
 $statementComment = $pdo->prepare($comment);
-$c=1;
+$c= count($getPosts);
 for ($v=0; $v < count($getPosts) ; $v++) { 
     
     $statementComment->execute([
@@ -36,7 +36,7 @@ for ($v=0; $v < count($getPosts) ; $v++) {
          
         };
         
-    $c++;        
+    $c--;        
 }
 
 
@@ -44,13 +44,13 @@ for ($v=0; $v < count($getPosts) ; $v++) {
 //likes
 $likes = 'SELECT post_id,count(likes) FROM like_posts WHERE post_id = :post_id';
 $statementLike = $pdo->prepare($likes);
-    $l = 1;
+    $l = count($getPosts);
 for ($i=0; $i < count($getPosts) ; $i++) { 
     
     $statementLike ->execute([
         ':post_id'=>$l
     ]);
-    $l++;
+    $l--;
     $getLike  = $statementLike->fetch(PDO::FETCH_ASSOC);
 
     if($getLike['post_id'] === $getPosts[$i]['post_id'] ){    

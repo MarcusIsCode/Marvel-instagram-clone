@@ -111,7 +111,7 @@ fetch('app/Get/getData.json')
 .then((myJson) => {
     if (document.querySelector("main") !== null){
 
- 
+      
       for (let i = 0; i < myJson.length; i++) {
         creatPost(
           myJson[i].profile_name,
