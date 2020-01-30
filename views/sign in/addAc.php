@@ -4,8 +4,12 @@
     </form>
 
     <h1 class="text-center">New User</h1>
-    <h4 class="text-danger text-center"> <?php echo $_SESSION['error']['account']; ?></h4>
-    <h4 class="text-success text-center"> <?php echo  $_SESSION['Account']; ?></h4>
+    <h4 class="text-danger text-center"> <?php if (isset($_SESSION['error']['account'])) {
+                                                echo $_SESSION['error']['account'];
+                                            } ?></h4>
+    <h4 class="text-success text-center"> <?php if (isset($_SESSION['Account'])) {
+                                                echo $_SESSION['Account'];
+                                            } ?></h4>
 
     <form class="addAccount flex" action="app/users/creatAccount.php" method="post" enctype="multipart/form-data">
 

@@ -1,33 +1,41 @@
-.profileBox{
-    min-height:89vh ;
-    padding-bottom: 10px;
-    font-family: 'Amatic SC', cursive;
-    font-size: 22px;
+.profileBox {
+  min-height: 89vh;
+  padding-bottom: 10px;
+  font-family: "Amatic SC", cursive;
+  font-size: 22px;
 }
-.profileBox h1{
-    font-family: 'Waiting for the Sunrise', cursive;
-    font-size: 50px;
-}
-.profileBox img{
-    width: 300px;   
+.profileBox h1 {
+  font-family: "Waiting for the Sunrise", cursive;
+  font-size: 50px;
 }
 
-.textBoxBio{
-    width: 100%;
-    position: relative;
-    top:10px;
-    
+.profileBox img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
 }
-.profileBox .btn{
-    font-size: 25px;
-    font-weight: bolder;
+
+.textBoxBio {
+  width: 100%;
+  position: relative;
+  top: 10px;
 }
-.confirm,h5{
-    font-size: 24px;
-    font-weight: bolder;
+.profileBox .btn {
+  font-size: 25px;
+  font-weight: bolder;
 }
-.updateAccount{
-    font-family: 'Amatic SC', cursive;
-    font-size: 24px;
-    font-weight: bolder;
+.confirm,
+h5 {
+  font-size: 24px;
+  font-weight: bolder;
+}
+.updateAccount {
+  font-family: "Amatic SC", cursive;
+  font-size: 24px;
+  font-weight: bolder;
+}
+
+.follow,
+.follow h3 {
+  font-size: 16px;
 }
