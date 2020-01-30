@@ -253,8 +253,8 @@ fetch("app/Get/getData.json")
       } else {
         const noPosts = document.createElement("div");
 
-        const noPostsTemplate = `<p class="m-0">You have no posts, and you are not following anyone.</p>
-      <p class="m-0">Search for new users to follow!</p>`;
+        const noPostsTemplate = `<p class="m-0 text-center">You have no posts and you are not following anyone.</p>
+      <p class="m-0 text-center">Search for new users to follow!</p>`;
 
         noPosts.innerHTML = noPostsTemplate;
 
